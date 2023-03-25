@@ -1,14 +1,61 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/navigation/navigation",
+    "pages/virtual/virtual",
+    "pages/shopping/shopping",
+    "pages/mine/mine"
+  ],
+  "subpackages": [
+    {
+      "root":"packageA",
+      "name": "package-mine",
+      "pages": [
+        "address/address",
+        "order/order",
+        "feedback/feedback",
+        "setting/setting"
+      ]
+    },
+    {
+      "root":"packageB",
+      "name": "package-shop",
+      "pages": [
+        "detail/detail"
+      ]
+    }
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#1E90FF",
+    "navigationBarTitleText": "校史馆",
     "navigationBarTextStyle":"black"
   },
-  "style": "v2",
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/navigation/navigation",
+      "text": "导航",
+      "iconPath": "/images/navigation.png",
+      "selectedIconPath": "/images/navigation_active.png"
+    },
+    {
+      "pagePath": "pages/virtual/virtual",
+      "text": "参观",
+      "iconPath": "/images/virtual.png",
+      "selectedIconPath": "/images/virtual_active.png"
+    },
+    {
+      "pagePath": "pages/shopping/shopping",
+      "text": "购物",
+      "iconPath": "/images/shopping.png",
+      "selectedIconPath": "/images/shopping_active.png"
+    },
+    {
+      "pagePath": "pages/mine/mine",
+      "text": "我的",
+      "iconPath": "/images/mine.png",
+      "selectedIconPath": "/images/mine_active.png"
+    }
+  ]
+  },
   "sitemapLocation": "sitemap.json"
 }

@@ -1,0 +1,13 @@
+<van-card wx:for="{{goods}}" 
+    wx:key="key" 
+    custom-class="cardClass" 
+    title-class="titleClass" 
+    price-class="priceClass" 
+    price="{{item.price}}" 
+    tag="{{item.tag}}" 
+    title="{{item.title}}" 
+    thumb="{{item.image}}" 
+    desc="{{item.desc}}"
+    data-obj="{{item}}" 
+    bindtap="toDetail">
+</van-card>

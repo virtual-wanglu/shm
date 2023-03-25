@@ -1,0 +1,26 @@
+/* pages/mine/mine.wxss */
+
+.background{
+    width: 750rpx;
+    height: 400rpx;
+    position: relative;
+    background-color:#1E90FF;
+    border-bottom-left-radius: 60rpx;
+    border-bottom-right-radius: 60rpx;
+}
+
+.usercard{
+
+    /* border-radius: 80rpx; */
+    position: relative;
+    margin-left: 70rpx;
+    margin-right:70rpx;
+    margin-bottom: 10rpx;
+    top: 100rpx;
+    height: 150rpx;
+    font-size: 30;
+}
+
+.van-card__img{
+    height: 100%!important;
+  }

@@ -1,0 +1,23 @@
+{
+  "name": "shm",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/FC-Bayern-Munchen/universityhistorymuseum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/FC-Bayern-Munchen/universityhistorymuseum/issues"
+  },
+  "homepage": "https://gitlab.com/FC-Bayern-Munchen/universityhistorymuseum#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.12"
+  },
+  "description": ""
+}

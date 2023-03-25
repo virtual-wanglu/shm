@@ -1,0 +1,14 @@
+/* packageB/detail/detail.wxss */
+
+  /* 单元格标题title */
+  .van-cell .van-cell__title {
+    color: red;
+    font-size: 20px;
+  }
+   
+  /* 标题下方label */
+  .van-cell .van-cell__label {
+    color: #000;
+    font-weight: 500;
+    font-size:16px;
+  }

@@ -1,0 +1,70 @@
+
+<view class="background">
+    <view class="usercard">
+        <view wx:if="{{loginStatus == false}}">
+            <van-card
+            centered="true"
+            thumb="{{ userPhoto }}"
+            >
+            <view slot="title">
+                <van-button
+                type="primary"
+                bindtap="loginFun"
+                color="#ff0000"
+                round="true"
+                size="large">请登录
+                </van-button>
+            </view>
+            </van-card>
+        </view>
+        <view wx:if="{{loginStatus == true}}">
+            <van-card
+            centered="true"
+            thumb="{{ userPhoto }}"
+                title="{{userName}}"
+            >
+            </van-card>
+        </view>
+    </view>
+</view>
+
+
+<text>\n</text>
+
+
+<van-cell 
+    title="收货地址" 
+    size="large" 
+    is-link 
+    icon="/images/address.png" 
+    link-type="navigateTo"
+    url="/packageA/address/address"
+/>
+<text>\n</text>
+<van-cell 
+    title="我的订单" 
+    size="large" 
+    is-link 
+    icon="/images/dingdan.png"
+    link-type="navigateTo"
+    url="/packageA/order/order"
+/>
+<text>\n</text>
+<van-cell 
+    title="意见反馈" 
+    size="large" 
+    is-link 
+    icon="/images/yijian.png"
+    link-type="navigateTo"
+    url="/packageA/feedback/feedback"
+/>
+<text>\n</text>
+<van-cell 
+    title="我的设置" 
+    size="large" 
+    is-link 
+    icon="/images/shezhi.png"
+    link-type="navigateTo"
+    url="/packageA/setting/setting"
+/>
+
