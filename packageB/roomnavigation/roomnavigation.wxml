@@ -1,0 +1,13 @@
+<scroll-view 
+    scroll-y
+    style="height:1300rpx;width: 750rpx;">
+    <view style="height:1300rpx;width: 750rpx;">
+        <image
+            src="https://wx2.sinaimg.cn/mw690/007538l7gy1hccfajc6nhj317f26ae20.jpg"
+            height="1300px"
+            width="750px"
+            mode="widthFix"
+        >
+        </image>
+    </view>
+</scroll-view>

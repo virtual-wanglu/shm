@@ -51,7 +51,7 @@
 />
 <text>\n</text>
 <van-cell 
-    title="意见反馈" 
+    title="意见反馈"
     size="large" 
     is-link 
     icon="/images/yijian.png"

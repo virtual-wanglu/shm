@@ -13,14 +13,16 @@
         "address/address",
         "order/order",
         "feedback/feedback",
-        "setting/setting"
+        "setting/setting",
+        "addaddress/addaddress"
       ]
     },
     {
       "root":"packageB",
       "name": "package-shop",
       "pages": [
-        "detail/detail"
+        "detail/detail",
+        "roomnavigation/roomnavigation"
       ]
     }
   ],

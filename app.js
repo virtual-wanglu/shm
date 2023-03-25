@@ -1,4 +1,5 @@
 // app.js
+//秘钥：5bb01c11a1d82f2d9cea97c6e5180128
 App({
   onLaunch() {
     // 展示本地存储能力
@@ -14,6 +15,7 @@ App({
     })
   },
   globalData: {
+    userlogin:false,
     userInfo: null
   }
 })

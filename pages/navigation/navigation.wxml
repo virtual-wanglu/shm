@@ -1,1 +1,33 @@
+<scroll-view 
+    scroll-y
+    style="height: 1500rpx;">
+    <map 
+        longitude="113.535677" 
+        latitude="34.812268" 
+        enable-3D="true"
+        show-compass="true"
+        scale="17"
+        markers="{{markers}}"
+        style="width: 750rpx;height: 800rpx"
+    >
+    </map>
+    <text>\n</text>
+    <van-cell-group inset>
+        <van-cell 
+        icon="{{zzu.image}}"
+        title="{{zzu.title}}"
+        label="{{zzu.label}}"
+        />
+    </van-cell-group>
+</scroll-view>
 
+<view style="position:fixed;bottom:0;height:100rpx;width:750rpx;background-color: white;">
+    <van-button 
+    plain 
+    hairline 
+    type="primary"
+    size="large"
+    bindtap="inroomnavigation"
+    >进入室内导航
+    </van-button>
+</view>

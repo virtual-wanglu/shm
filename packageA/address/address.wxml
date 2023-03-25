@@ -1,61 +1,64 @@
- 
-<view class="self_service">大件物品回收流程</view>
-<button class="btn" type="primary" bindtap = "getWechatAddress">获取微信收货地址</button>
-<form bindsubmit="orderclick">
-  <view class="con">
-  <view class="con2 flex-row j_b">
-    <view class="con2_text1">联系人</view>
-    <view class="con2_input">
-      <input type="text" class="inp" value="{{concatPerson}}" data-type="concatPerson" placeholder="请输入联系人姓名" bindblur="bindinputblur"/>
+<!-- <scroll-view class="scroll" scroll-y="true">
+<view wx:for="{{addressList}}" wx:key="key">
+  <view class="product-name-wrap">
+    <view class="ui-list-item-info">{{item.consignee}}
+      <text decode="{{true}}" space="{{true}}">  </text> {{item.mobile}}
     </view>
-  </view>
-  <view class="con2 flex-row j_b">
-    <view class="con2_text1">手机号</view>
-    <view class="con2_input">
-      <input type="text" class="inp" value="{{phone}}" data-type="phone" maxlength="11" placeholder="请输入手机号" bindblur="bindinputblur"/>
+    <view class="ui-list-item-address">
+     <p>省城区： {{item.myregion[0]+item.myregion[1]+item.myregion[2]}}</p>
+     <p class="ui-list-item-del">
+    <radio-group bindchange="radioChange" class="b">
+    <radio wx:for-item="item" wx:key="mobile" value="{{item.mobile}}" bindtap="change" checked="{{item.checked}}" class="bb"></radio>
+    </radio-group>
+    </p>
     </view>
-  </view>
- 
-  <view class="con2 flex-row j_b">
-    <view class="con2_text1">预约日期</view>
-    <picker mode="date" value="{{date}}" data-type="date" start="2019-09-01" end="2059-09-01" bindchange="bindDateChange">
-      <view class="picker">
-        当前选择日期: {{date}}
-      </view>
-    </picker>
-  </view>
-  <view class="con2 flex-row j_b">
-    <view class="con2_text1">预约时间</view>
-    <picker mode="time" value="{{time}}" data-type="time" start="09:01" end="21:01" bindchange="bindTimeChange">
-      <view class="picker">
-        当前选择时间: {{time}}
-      </view>
-    </picker>
-  </view>
-  <view class="con2 flex-row j_b">
-    <view class="con2_text1">选择地区</view>
-    <view class="picker">
-        <city-picker multiCityArray="{{multiCityArray}}" cityData="{{cityData}}" multiIndex="{{multiIndex}}" visible="{{visible}}" bind:multiPickerColumnChange="_multiPickerColumnChange" bind:multiPickerChange="_multiPickerChange"></city-picker>
-        <!-- <picker mode="multiSelector" value="{{multiIndex}}" range="{{multiCityArray}}" bindcolumnchange="bindMultiPickerColumnChange" bindchange="bindMultiPickerChange">
-            <view class="picker">
-                {{multiCityArray[0][multiIndex[0]]}}，{{multiCityArray[1][multiIndex[1]]}}，{{multiCityArray[2][multiIndex[2]]}}
-            </view>
-        </picker> -->
-    </view>
-  </view>
-  <view class="con2 flex-row j_b">
-      <view class="con2_text1">详细地址</view>
-      <view class="con2_input">
-          <input type="text" class="inp" value="{{address}}" data-type="address" placeholder="请输入详细地址" bindblur="bindinputblur"/>
-      </view>
-  </view>
-    
- 
- 
+    <view class="ui-list-item-address">
+       详细地址：{{item.detailAddress}}
 </view>
-<button  class="btn" type="primary" form-type="submit">开始预约</button>
- 
-</form>
- 
- 
- 
+    <view class="ui-list-item-time">
+      <p> 收货时间：{{item.transportDay}}</p>
+      <p class="ui-list-item-del" data-id="{{index}}" bindtap="delAddress">删除</p>
+    </view>
+    <view class="separate"></view>
+  </view>
+</view>
+</scroll-view> -->
+
+<view class="addresspage">
+    <view wx:if="{{islogin==false}}">
+        <van-empty image="error" description="未登录，无法查看" />
+    </view>
+    <view wx:else>
+        <scroll-view class="scroll" scroll-y="true">
+            <van-cell-group inset wx:for="{{addressList}}" wx:key="id">
+                <view wx:if="{{item.isDefault}}">
+                    <van-cell
+                        icon="{{icon_0}}"
+                        title="{{item.name}}"
+                        value="{{item.tel}}"
+                        label="{{item.province}} {{item.city}} {{item.district}} {{item.detail}}">
+                    </van-cell>
+                </view>
+                <view wx:else="{{!item.isDefault}}">
+                    <van-cell
+                        icon="{{icon_1}}"
+                        title="{{item.name}}"
+                        value="{{item.tel}}"
+                        label="{{item.province}} {{item.city}} {{item.district}} {{item.detail}}">
+                    </van-cell>
+                </view>
+            </van-cell-group>
+        </scroll-view>
+        <view style="position:fixed;bottom:0;height:150rpx;width:750rpx;background-color: white;">
+            <van-button
+            type="warning"
+            size="large"
+            round="true"
+            color="rgb(238, 91, 6)"
+            icon="/images/add.png"
+            bindtap="adduserAddress"
+            >添加收货地址
+            </van-button>
+        </view>
+    </view>
+</view>

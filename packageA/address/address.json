@@ -1,3 +1,9 @@
 {
-    "usingComponents": {}
+    "navigationBarTitleText": "我的收货地址",
+    "usingComponents": {
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-empty": "@vant/weapp/empty/index",
+        "van-button": "@vant/weapp/button/index"
+    }
 }
