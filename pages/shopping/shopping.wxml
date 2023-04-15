@@ -6,7 +6,7 @@
     price="{{item.price}}" 
     tag="{{item.tag}}" 
     title="{{item.title}}" 
-    thumb="{{item.image}}" 
+    thumb="{{item.image[0].url}}" 
     desc="{{item.desc}}"
     data-obj="{{item}}" 
     bindtap="toDetail">

@@ -3,7 +3,8 @@
     "projectname": "shm",
     "setting": {
         "compileHotReLoad": false,
-        "urlCheck": false
+        "urlCheck": false,
+        "bigPackageSizeSupport": true
     },
     "libVersion": "2.25.4"
 }

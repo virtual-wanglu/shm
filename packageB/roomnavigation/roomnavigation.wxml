@@ -1,13 +1,61 @@
-<scroll-view 
-    scroll-y
-    style="height:1300rpx;width: 750rpx;">
-    <view style="height:1300rpx;width: 750rpx;">
-        <image
-            src="https://wx2.sinaimg.cn/mw690/007538l7gy1hccfajc6nhj317f26ae20.jpg"
-            height="1300px"
-            width="750px"
-            mode="widthFix"
-        >
-        </image>
+<view style="height:440rpx;width: 750rpx;">
+    <image src="{{image}}" mode='widthFix' style="width:750rpx" bindtap="clickImg"></image>
+</view>
+
+<!-- <audio poster="{{audiodata.poster}}" name="{{audiodata.name}}" src="{{audiodata.src}}" id="myAudio" controls loop></audio> -->
+
+<van-tabs swipeable ellipsis="false">
+    <van-tab title="序厅">
+        <view wx:for="{{audiodata[0].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="第一展厅">
+        <view wx:for="{{audiodata[1].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="第二展厅">
+        <view wx:for="{{audiodata[2].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="中厅">
+        <view wx:for="{{audiodata[5].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="第三展厅">
+        <view wx:for="{{audiodata[3].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="第四展厅">
+        <view wx:for="{{audiodata[4].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+</van-tabs>
+
+
+<view class="player" style="position:fixed;bottom:0">
+    <image class="player-cover" src="{{bottomPlayer.img}}"></image>
+    <view class="player-info">
+        <view class="player-info-title">{{bottomPlayer.title}}</view>
+        <view class="player-info-singer">{{bottomPlayer.dec}}</view>
     </view>
-</scroll-view>
+    <!-- 切换到播放列表 -->
+    <view class="player-controls">
+        <image wx:if="{{bottomPlayer.language_zh}}" src="/images/zh.png" bindtap="chanageLanguageFun"></image>
+        <image wx:else src="/images/en.png" bindtap="chanageLanguageFun"></image>
+        <image wx:if="{{!bottomPlayer.play}}" src="/images/pause.png" bindtap="playFun"></image>
+        <image wx:else src="/images/start.png" bindtap="pauseFun"></image>
+        <image src="/images/restart.png" bindtap="restartFun"></image>
+    </view>
+</view>

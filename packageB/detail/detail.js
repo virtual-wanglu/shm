@@ -11,7 +11,7 @@ Page({
             tag:"",
             title:"",
             desc:"",
-            image:""
+            image:[]
         },
     },
 
@@ -19,15 +19,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        const obj = JSON.parse(options.obj); // 将字符串对象转化为真正的对象
-        this.setData({
-            id:obj.id,
-            price:obj.price,
-            tag:obj.tag,
-            title:obj.title,
-            desc:obj.desc,
-            image:obj.image
-        })
+        let obj = JSON.parse(options.obj); // 将字符串对象转化为真正的对象
+        console.log(obj)
+        console.log(obj.image)
+        // this.setData({
+        //     id:obj.id,
+        //     price:obj.price,
+        //     tag:obj.tag,
+        //     title:obj.data.title,
+        //     desc:obj.desc,
+        //     image:obj.image
+        // })
+        this.setData({goods:obj});
+        console.log(this.data.goods.title)
+        console.log(this.data.goods.image)
+        console.log(this.data.goods)
     },
 
     /**

@@ -59,5 +59,11 @@
     }
   ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "wxPano": {
+      "version": "2.1.4",
+      "provider": "wx386c038238531f87"
+    }
+  }
 }

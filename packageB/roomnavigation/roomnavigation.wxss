@@ -1,1 +1,42 @@
-/* packageB/roomnavigation/roomnavigation.wxss */
+
+.empty{
+    height: 10rpx;
+}
+
+.scroll{
+    flex: 1;
+    overflow: scroll;
+}  
+
+.player{
+    display: flex;
+    align-items: center;
+    background:white;
+    border-top: 1rpx solid #7c8dec;
+    height: 112rpx;
+   width: 750rpx;
+  }
+  .player-cover{
+    width:80rpx;
+    height: 80rpx;
+    margin-left: 15rpx;
+    border-radius: 10rpx;
+    border:2rpx solid rgb(204, 200, 200);
+  }
+  .player-info{
+    flex:1;
+    font-size: 10pt;
+    line-height: 38rpx;
+    margin-left: 20rpx;
+    padding-bottom:8rpx;
+  }
+  .player-info-singer{
+    color:rgb(189, 214, 245);
+    margin-top: 5rpx;
+    font-size:9pt;
+  }
+  .player-controls image{
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 30rpx;
+  }

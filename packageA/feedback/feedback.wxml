@@ -1,2 +1,11 @@
-<!--packageA/feedback/feedback.wxml-->
-<text>packageA/feedback/feedback.wxml</text>
+<view class="section">
+    <form bindsubmit="bindFormSubmit">
+        <text>问题和意见</text>
+        <textarea placeholder="" name="textarea"></textarea>
+        <text>\n</text>
+        <text>图片</text>
+        <textarea placeholder="" name="textarea"></textarea>
+        <text>\n</text>
+        <button form-type="submit"> 提交 </button>
+    </form>
+</view>

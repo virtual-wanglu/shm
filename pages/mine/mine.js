@@ -1,21 +1,71 @@
+const API = require('../../utils/api')
+const {
+    user,
+    token
+} = require('../../utils/auth')
+const app = getApp()
+
 // pages/mine/mine.js
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
         loading: true,
         loginStatus: false,
-        userPhoto:"/images/Uphoto.png",
-        userName:"啦啦啦"
+        userPhoto: "/images/Uphoto.png",
+        userName: "啦啦啦",
+        user: "",
+        encryptedData: "",
+        iv: "",
+        tmplIds: []
     },
 
-    loginFun(){
-        wx.login({
-            success(res){
-            console.log(res.code)
-        }
+    loginFun() {
+        var that = this
+        wx.getUserProfile({
+            desc: '必须授权才能使用',
+            success: res => {
+                let user = res.userInfo
+                console.log(user)
+                wx.setStorageSync('user', user)
+                that.setData({
+                    loginStatus: true,
+                    user: user,
+                    encryptedData: res.encryptedData,
+                    iv: res.iv
+                })
+                wx.login({
+                    success: (res) => {
+                        if (res.code) {
+                            wx.request({
+                                url: 'http://121.196.227.203:8080/wx/login',
+                                method: 'POST',
+                                header: {
+                                    'content-type': 'application/x-www-form-urlencoded',
+                                },
+                                data: {
+                                    code: res.code,
+                                    // encryptedData: encryptedData,
+                                    // iv: iv,
+                                },
+                                success(res) {
+                                    console.log(res)
+                                    if (res.data.status == '200') {
+                                        that.setData({
+                                            loginStatus: true,
+                                        })
+                                    }
+                                    wx.setStorageSync('token', res.data.data)
+                                }
+                            })
+                        }
+                    }
+                })
+            },
+            fall: res => {
+                console.log('失败', res)
+            }
         })
     },
 
@@ -23,7 +73,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        let user = wx.getStorageSync('user')
+        this.setData({
+            userInfo: user
+        })
     },
 
     /**

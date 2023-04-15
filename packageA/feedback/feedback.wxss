@@ -1,1 +1,10 @@
-/* packageA/feedback/feedback.wxss */
+.section{
+    height: 1000rpx;
+    width: 100%;
+}
+
+.section textarea{
+    height: 500rpx;
+    width: 100%;
+    background-color: rgb(202, 191, 191);
+}

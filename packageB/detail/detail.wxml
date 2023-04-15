@@ -1,9 +1,19 @@
-<image src="{{image}}" style="width:750rpx" mode="cover"></image>
+<!-- <image src="{{image}}" style="width:750rpx" mode="cover"></image> -->
+
+<!--index.wxml-->
+<!-- 自动播放、有指示点的轮播图组件 -->
+<swiper class="banners" indicator-dots autoplay circular="{{true}}" indicator-active-color="#d43c33" indicator-color="ivory">
+    <swiper-item wx:for="{{goods.image}}" wx:key="id">
+      <image class="img" src="{{item.url}}" />
+    </swiper-item>
+</swiper>
+
+
 <text>\n\n</text>
 
 <van-cell-group inset>
-  <van-cell title="¥{{price}}"/>
-  <van-cell label="{{desc}}"/>
+  <van-cell title="¥{{goods.price}}"/>
+  <van-cell label="{{goods.desc}}"/>
 </van-cell-group>
 
 
