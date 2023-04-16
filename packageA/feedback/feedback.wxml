@@ -1,11 +1,22 @@
-<view class="section">
-    <form bindsubmit="bindFormSubmit">
-        <text>问题和意见</text>
-        <textarea placeholder="" name="textarea"></textarea>
-        <text>\n</text>
-        <text>图片</text>
-        <textarea placeholder="" name="textarea"></textarea>
-        <text>\n</text>
-        <button form-type="submit"> 提交 </button>
-    </form>
+<!--pages/feedback/feedback.wxml-->
+<view class="feedback1">
+    <view class="opinion_wrap">
+        <form bindsubmit="formSubmit">
+            <view class="content_wrap">
+                <view class="content">
+                    <textarea name="opinion" maxlength="50" value="{{message.comment}}" auto-height placeholder-class="placeholder" placeholder="期待您的反馈，我们将会不断改进（50字以内）" />
+                </view>
+            </view>
+            <view class="phone">
+                <input name="contact" value="{{message.tel}}" placeholder-class="placeholder" placeholder="请留下您的手机号或邮箱，方便我们及时回复" />
+            </view>
+            <button class="button_commit" formType="submit" hover-class="button_active">提交</button>
+        </form>
+    </view>
+</view>
+<text>\n</text>
+<view class="feedback2">
+    <view class="otheropinion">
+        <button open-type="feedback">其他反馈</button>
+    </view>
 </view>

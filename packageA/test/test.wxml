@@ -1,0 +1,4 @@
+
+<view>
+    <button bindtap="send">提交</button>
+</view>

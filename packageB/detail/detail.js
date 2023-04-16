@@ -83,5 +83,11 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    onClickShoppingCart(){
+        wx.navigateTo({
+            url:'/packageB/shoppingcart/shoppingcart',
+          })
     }
 })

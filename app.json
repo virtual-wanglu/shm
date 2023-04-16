@@ -14,7 +14,8 @@
         "order/order",
         "feedback/feedback",
         "setting/setting",
-        "addaddress/addaddress"
+        "addaddress/addaddress",
+        "test/test"
       ]
     },
     {
@@ -22,6 +23,7 @@
       "name": "package-shop",
       "pages": [
         "detail/detail",
+        "shoppingcart/shoppingcart",
         "roomnavigation/roomnavigation"
       ]
     }
