@@ -21,7 +21,7 @@
       "root":"packageB",
       "name": "package-shop",
       "pages": [
-        "service/service",
+        "shoppingservice/shoppingservice",
         "purchase/purchase",
         "addaddress/addaddress",
         "detail/detail",

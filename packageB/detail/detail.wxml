@@ -18,12 +18,12 @@
 
 
 <van-goods-action>
-  <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
+  <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickService" />
   <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickShoppingCart" />
   <van-goods-action-button
     text="加入购物车"
     type="warning"
-    bind:click="onClickButton"
+    bind:click="onClickAddCart"
   />
-  <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+  <van-goods-action-button text="立即购买" bind:click="onClickPurchase" />
 </van-goods-action>

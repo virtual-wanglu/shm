@@ -5,13 +5,13 @@ Page({
      * 页面的初始数据
      */
     data: {
-        goods:{
-            id:"",
-            price:"",
-            tag:"",
-            title:"",
-            desc:"",
-            image:[]
+        goods: {
+            id: "",
+            price: "",
+            tag: "",
+            title: "",
+            desc: "",
+            image: []
         },
     },
 
@@ -30,7 +30,9 @@ Page({
         //     desc:obj.desc,
         //     image:obj.image
         // })
-        this.setData({goods:obj});
+        this.setData({
+            goods: obj
+        });
         console.log(this.data.goods.title)
         console.log(this.data.goods.image)
         console.log(this.data.goods)
@@ -85,9 +87,22 @@ Page({
 
     },
 
-    onClickShoppingCart(){
+    onClickShoppingCart() {
         wx.navigateTo({
-            url:'/packageB/shoppingcart/shoppingcart',
-          })
+            url: '/packageB/shoppingcart/shoppingcart',
+        })
+    },
+    onClickService() {
+        wx.navigateTo({
+            url: '/packageB/shoppingservice/shoppingservice',
+        })
+    },
+    onClickAddCart() {
+
+    },
+    onClickPurchase() {
+        wx.navigateTo({
+            url: '/packageB/purchase/purchase',
+        })
     }
 })

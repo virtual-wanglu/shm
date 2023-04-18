@@ -1,11 +1,11 @@
-// packageB/service/service.js
+// packageB/shoppingservice/shoppingservice.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        serviceImgUrl:"http://121.196.227.203:8000/images/shoppingservice.jpg"
     },
 
     /**

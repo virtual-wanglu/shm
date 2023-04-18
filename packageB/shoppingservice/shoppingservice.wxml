@@ -1,0 +1,10 @@
+<van-notice-bar
+  color="#1989fa"
+  background="#ecf9ff"
+  left-icon="info-o"
+  text="请扫码添加客服微信联系我们"
+/>
+
+<view class="card">
+    <image class="image" src="{{serviceImgUrl}}" mode="widthFix"/>
+</view>
