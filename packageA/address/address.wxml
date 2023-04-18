@@ -1,29 +1,3 @@
-<!-- <scroll-view class="scroll" scroll-y="true">
-<view wx:for="{{addressList}}" wx:key="key">
-  <view class="product-name-wrap">
-    <view class="ui-list-item-info">{{item.consignee}}
-      <text decode="{{true}}" space="{{true}}">  </text> {{item.mobile}}
-    </view>
-    <view class="ui-list-item-address">
-     <p>省城区： {{item.myregion[0]+item.myregion[1]+item.myregion[2]}}</p>
-     <p class="ui-list-item-del">
-    <radio-group bindchange="radioChange" class="b">
-    <radio wx:for-item="item" wx:key="mobile" value="{{item.mobile}}" bindtap="change" checked="{{item.checked}}" class="bb"></radio>
-    </radio-group>
-    </p>
-    </view>
-    <view class="ui-list-item-address">
-       详细地址：{{item.detailAddress}}
-</view>
-    <view class="ui-list-item-time">
-      <p> 收货时间：{{item.transportDay}}</p>
-      <p class="ui-list-item-del" data-id="{{index}}" bindtap="delAddress">删除</p>
-    </view>
-    <view class="separate"></view>
-  </view>
-</view>
-</scroll-view> -->
-
 <view class="addresspage">
     <view wx:if="{{islogin==false}}">
         <van-empty image="error" description="未登录，无法查看" />
@@ -34,17 +8,17 @@
                 <view wx:if="{{item.isDefault}}">
                     <van-cell
                         icon="{{icon_0}}"
-                        title="{{item.name}}"
-                        value="{{item.tel}}"
-                        label="{{item.province}} {{item.city}} {{item.district}} {{item.detail}}">
+                        title="{{item.userName}}"
+                        value="{{item.telNumber}}"
+                        label="{{item.province}} {{item.city}} {{item.county}} {{item.detailInfo}}">
                     </van-cell>
                 </view>
-                <view wx:else="{{!item.isDefault}}">
+                <view wx:else="{{item.isDefault}}">
                     <van-cell
                         icon="{{icon_1}}"
-                        title="{{item.name}}"
-                        value="{{item.tel}}"
-                        label="{{item.province}} {{item.city}} {{item.district}} {{item.detail}}">
+                        title="{{item.userName}}"
+                        value="{{item.telNumber}}"
+                        label="{{item.province}} {{item.city}} {{item.county}} {{item.detailInfo}}">
                     </van-cell>
                 </view>
             </van-cell-group>

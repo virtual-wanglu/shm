@@ -20,8 +20,8 @@
         <view wx:if="{{loginStatus == true}}">
             <van-card
             centered="true"
-            thumb="{{ user.avatarUrl }}"
-                title="{{user.nickName}}"
+            thumb="{{ userInfo.avatarUrl }}"
+                title="{{userInfo.nickName}}"
             >
             </van-card>
         </view>

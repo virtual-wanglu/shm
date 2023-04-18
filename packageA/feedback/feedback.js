@@ -1,3 +1,5 @@
+ const app = getApp()
+
  Page({
      /**
       * 页面的初始数据
@@ -86,6 +88,23 @@
                  }
              })
              return status;
+         }
+     },
+
+     onLoad(options) {
+         console.log(app.globalData.userlogin)
+         if (!app.globalData.userlogin) {
+             wx.showModal({
+                 title: '提示',
+                 content: '请登录后进入',
+                 success(res) {
+                     if (res.confirm) {
+                         wx.navigateBack({})
+                     } else if (res.cancel) {
+                         wx.navigateBack({})
+                     }
+                 }
+             })
          }
      },
  })

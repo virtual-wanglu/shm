@@ -1,5 +1,4 @@
-const app = getApp()
-// packageA/order/order.js
+// packageB/service/service.js
 Page({
 
     /**
@@ -13,20 +12,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(app.globalData.userlogin)
-        if (!app.globalData.userlogin) {
-            wx.showModal({
-                title: '提示',
-                content: '请登录后进入',
-                success(res) {
-                    if (res.confirm) {
-                        wx.navigateBack({})
-                    } else if (res.cancel) {
-                        wx.navigateBack({})
-                    }
-                }
-            })
-        }
+
     },
 
     /**

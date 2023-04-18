@@ -14,7 +14,6 @@
         "order/order",
         "feedback/feedback",
         "setting/setting",
-        "addaddress/addaddress",
         "test/test"
       ]
     },
@@ -22,6 +21,9 @@
       "root":"packageB",
       "name": "package-shop",
       "pages": [
+        "service/service",
+        "purchase/purchase",
+        "addaddress/addaddress",
         "detail/detail",
         "shoppingcart/shoppingcart",
         "roomnavigation/roomnavigation"

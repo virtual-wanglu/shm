@@ -15,48 +15,42 @@ Page({
         loginStatus: false,
         userPhoto: "/images/Uphoto.png",
         userName: "啦啦啦",
-        user: "",
-        encryptedData: "",
-        iv: "",
-        tmplIds: []
+        userInfo:null,
     },
 
     loginFun() {
+        console.log(app.globalData.userlogin)
         var that = this
         wx.getUserProfile({
             desc: '必须授权才能使用',
             success: res => {
-                let user = res.userInfo
-                console.log(user)
-                wx.setStorageSync('user', user)
                 that.setData({
-                    loginStatus: true,
-                    user: user,
-                    encryptedData: res.encryptedData,
-                    iv: res.iv
+                    userInfo: res.userInfo,
                 })
+                console.log(res.userInfo)
                 wx.login({
                     success: (res) => {
                         if (res.code) {
+                            var msg = JSON.stringify({
+                                /*将对象转换成json字符串形式*/
+                                'code': res.code,
+                                'nick_name':this.data.userInfo.nickName,
+                                'avatar_url':this.data.userInfo.avatarUrl
+                            })
+                            console.log(msg),
                             wx.request({
-                                url: 'http://121.196.227.203:8080/wx/login',
+                                url: 'http://127.0.0.1:8080/wx/login',
                                 method: 'POST',
-                                header: {
-                                    'content-type': 'application/x-www-form-urlencoded',
-                                },
-                                data: {
-                                    code: res.code,
-                                    // encryptedData: encryptedData,
-                                    // iv: iv,
-                                },
+                                data:msg,
                                 success(res) {
                                     console.log(res)
-                                    if (res.data.status == '200') {
+                                    if (res.statusCode == '200') {
                                         that.setData({
                                             loginStatus: true,
-                                        })
+                                        }),
+                                        app.globalData.userlogin=true
+                                        app.globalData.useropenId=res.data
                                     }
-                                    wx.setStorageSync('token', res.data.data)
                                 }
                             })
                         }

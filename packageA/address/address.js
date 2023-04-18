@@ -1,38 +1,21 @@
-var app=getApp()
+var app = getApp()
 Page({
     data: {
-        islogin:"true",
-        icon_0:"/images/icon_0.png",
-        icon_1:"/images/icon_1.png",
-        addressList: [
-            {
-                id:1,
-                name:"王璐",
-                tel:"18338280489",
-                province:"河南省",
-                city:"郑州市",
-                district:"高新区",
-                detail:"郑州大学主校区",
-                isDefault:true
-            },
-            {
-                id:2,
-                name:"王璐",
-                tel:"18338280489",
-                province:"河南省",
-                city:"郑州市",
-                district:"高新区",
-                detail:"郑州大学主校区",
-                isDefault:false
-            }
-        ]
+        islogin: app.globalData.userlogin,
+        openid:"",
+        icon_0: "/images/icon_0.png",
+        icon_1: "/images/icon_1.png",
+        addressList: []
     },
 
-    onLoad: function (options) {
-        // var login = app.globalData.userlogin
-        // this.setData({
-        //     islogin:login
-        // })
+    onLoad(options) {
+        console.log(app.globalData.userlogin)
+        console.log(app.globalData.useropenId)
+        this.setData({
+            islogin: app.globalData.userlogin,
+            openid:app.globalData.useropenId,
+        })
+        this.requestUserAddress()
     },
 
     onPullDownRefresh: function () {
@@ -74,7 +57,7 @@ Page({
 
     adduserAddress: function () {
         wx.navigateTo({
-            url: '/packageA/addaddress/addaddress'
+            url: '/packageB/addaddress/addaddress?openid='+this.data.openid
         });
     },
 
@@ -82,20 +65,22 @@ Page({
         this.data.aa = e.detail.value;
     },
 
-    /* 删除item */
-    delAddress: function (e) {
-        var id = e.currentTarget.dataset.id //数组下标
-        this.data.addressList.splice(id, 1);
-        if (this.data.addressList.length > 0) {
-            this.setData({
-                addressList: this.data.addressList
+    requestUserAddress(){
+        var that=this
+        var openid=this.data.openid
+        if(openid){
+            wx.request({
+              url: 'http://127.0.0.1:8080/address/user',
+              method:'POST',
+              data:openid,
+              success: function (res){
+                    console.log(res)
+                    that.setData({
+                        addressList:res.data
+                    })
+              }
             })
-            wx.setStorageSync('addressList', this.data.addressList);
-        } else {
-            this.setData({
-                addressList: this.data.addressList
-            })
-            wx.setStorageSync('addressList', []);
         }
     }
+
 })
