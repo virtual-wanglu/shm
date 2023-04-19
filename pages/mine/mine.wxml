@@ -67,5 +67,13 @@
     link-type="navigateTo"
     url="/packageA/setting/setting"
 />
+<van-cell 
+    title="购物车" 
+    size="large" 
+    is-link 
+    icon="/images/shopping.png"
+    link-type="navigateTo"
+    url="/packageB/shoppingcart/shoppingcart"
+/>
 
 

@@ -1,10 +1,13 @@
-// packageB/detail/detail.js
+const app = getApp()
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        openid: "",
+        loginStatus: false,
         goods: {
             id: "",
             price: "",
@@ -19,23 +22,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        console.log(app.globalData.userlogin)
         let obj = JSON.parse(options.obj); // 将字符串对象转化为真正的对象
-        console.log(obj)
-        console.log(obj.image)
-        // this.setData({
-        //     id:obj.id,
-        //     price:obj.price,
-        //     tag:obj.tag,
-        //     title:obj.data.title,
-        //     desc:obj.desc,
-        //     image:obj.image
-        // })
         this.setData({
-            goods: obj
+            goods: obj,
+            openid: app.globalData.useropenId,
+            loginStatus: app.globalData.userlogin
         });
-        console.log(this.data.goods.title)
-        console.log(this.data.goods.image)
-        console.log(this.data.goods)
     },
 
     /**
@@ -88,9 +81,17 @@ Page({
     },
 
     onClickShoppingCart() {
-        wx.navigateTo({
-            url: '/packageB/shoppingcart/shoppingcart',
-        })
+        if (!this.data.loginStatus) {
+            wx.showToast({
+                title: '请用户先登录',
+                icon: 'error',
+                duration: 2000
+            })
+        } else {
+            wx.navigateTo({
+                url: '/packageB/shoppingcart/shoppingcart?openid=' + this.data.openid,
+            })
+        }
     },
     onClickService() {
         wx.navigateTo({
@@ -98,11 +99,41 @@ Page({
         })
     },
     onClickAddCart() {
+        if (!this.data.loginStatus) {
+            wx.showToast({
+                title: '请用户先登录',
+                icon: 'error',
+                duration: 2000
+            })
+        } else {
+            var msg = JSON.stringify({
+                /*将对象转换成json字符串形式*/
+                'open_id': this.data.openid,
+                'shoppingId': this.data.goods.id,
+            })
+            console.log(msg)
+            wx.request({
+                url: 'http://127.0.0.1:8080/shopping/addshoppingcart',
+                method: "POST",
+                data: msg,
+                success: function (res) {
+                    console.log(res)
+                }
+            })
+        }
 
     },
     onClickPurchase() {
-        wx.navigateTo({
-            url: '/packageB/purchase/purchase',
-        })
+        if (!this.data.loginStatus) {
+            wx.showToast({
+                title: '请用户先登录',
+                icon: 'error',
+                duration: 2000
+            })
+        } else {
+            wx.navigateTo({
+                url: '/packageB/purchase/purchase',
+            })
+        }
     }
 })

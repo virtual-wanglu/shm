@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/navigation/navigation",
-    "pages/virtual/virtual",
+    "pages/virtualView/virtualView",
     "pages/shopping/shopping",
     "pages/mine/mine"
   ],
@@ -44,7 +44,7 @@
       "selectedIconPath": "/images/navigation_active.png"
     },
     {
-      "pagePath": "pages/virtual/virtual",
+      "pagePath": "pages/virtualView/virtualView",
       "text": "参观",
       "iconPath": "/images/virtual.png",
       "selectedIconPath": "/images/virtual_active.png"

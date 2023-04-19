@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "联系客服",
     "usingComponents": {
         "van-notice-bar": "@vant/weapp/notice-bar/index"
       }      

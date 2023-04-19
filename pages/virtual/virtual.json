@@ -1,5 +1,0 @@
-{
-    "usingComponents": {
-        "pano": "plugin://wxPano/pano"
-    }
-}

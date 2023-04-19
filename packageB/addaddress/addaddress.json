@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "收货地址",
+    "navigationBarTitleText": "添加收货地址",
     "usingComponents": {
       "van-field": "@vant/weapp/field/index",
       "van-cell-group": "@vant/weapp/cell-group/index",

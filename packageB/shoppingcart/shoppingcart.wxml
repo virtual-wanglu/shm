@@ -1,2 +1,44 @@
-<!--packageB/shoppingcart/shoppingcart.wxml-->
-<text>packageB/shoppingcart/shoppingcart.wxml</text>
+<!-- <view>
+<button type="primary" bindtap="showList">点击显示</button>
+</view> -->
+
+<view wx:if="{{shoppingCartList==null}}">
+    <van-empty image="" description="购物车为空" />
+</view>
+<view wx:else>
+    <view class="shoppingcard" wx:for="{{shoppingCartList}}" wx:key="index">
+        <view class="card_icon">
+            <icon wx:if="{{item.select}}" type="success" color="red" size="30" bindtap="cancleSelect" data-index="{{index}}"></icon>
+            <icon wx:else type="circle" color="gray" size="30" bindtap="confirmSelect" data-index="{{index}}"></icon>
+        </view>
+        <view class="card_image">
+            <image src="{{item.imgUrl1}}" style="width: 150rpx;height: 150rpx" mode="widthFix" />
+        </view>
+        <view class="shoppingInfo">
+            <view class="card_title">
+                <text style="font-size: 37rpx;color:#424242; font-weight:bold;">{{item.title}}</text>
+            </view>
+            <view class="price_num">
+                <view class="card_price">
+                    <text style="font-size: 45rpx;color:red;">¥{{item.price}}</text>
+                </view>
+                <view class="card_num">
+                    <text>x{{item.number}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cart-footer">
+        <view style="height:1rpx;background-color:#f5f5f5"></view>
+        <view class="cart-footer-box">
+            <view>
+                <icon wx:if="{{allSelected}}" type="success" color="red" size="30" class="total-select" bindtap="cancleSelectAll" />
+                <icon wx:else type="circle" color="gray" size="30" class="total-select" bindtap="selectAll" />
+            </view>
+            <view>
+                <text class="total-text">合计:<text class="cart-toatl-price">￥{{totalPrice}}</text></text>
+                <text class="settlement-text" bind:tap="goToOrderSubmit">结算</text>
+            </view>
+        </view>
+    </view>
+</view>
