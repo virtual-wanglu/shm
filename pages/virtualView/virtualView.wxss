@@ -1,1 +1,9 @@
-/* pages/virtualView/virtualView.wxss */
+.banners{
+    width: 100%;
+    height: 550rpx;
+  }
+
+.img{
+    height: 550rpx;
+    width: 750rpx;
+}

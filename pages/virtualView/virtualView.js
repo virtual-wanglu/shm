@@ -5,7 +5,36 @@ Page({
      * 页面的初始数据
      */
     data: {
-        virtualUrl:"https://realsee.cn/EjwwZ0GX?product=realsee_vr&entry=share&refer_from=vrcapp_edit&source=link"
+        gridInfoList: [{
+                icon : "http://121.196.227.203:8000/images/roomImage/pre.jpg",
+                text : "序厅"
+            },
+            {
+                icon : "http://121.196.227.203:8000/images/roomImage/first.jpg",
+                text : "第一展厅"
+            },
+            {
+                icon : "http://121.196.227.203:8000/images/roomImage/second.jpg",
+                text : "第二展厅"
+            },
+            {
+                icon : "http://121.196.227.203:8000/images/roomImage/third.jpg",
+                text : "第三展厅"
+            },
+            {
+                icon : "http://121.196.227.203:8000/images/roomImage/mid.jpg",
+                text : "中厅"
+            },
+            {
+                icon : "http://121.196.227.203:8000/images/roomImage/four.jpg",
+                text : "第四展厅"
+            },
+        ],
+        // videoSrcList:[
+        //     {
+        //         videoSrc:
+        //     }
+        // ],
     },
 
     /**
@@ -62,5 +91,17 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    gotToDetail(e) {
+        console.log(e)
+        var index=e.currentTarget.dataset.index
+        // var msg = JSON.stringify({
+        //     'videoSrc': goodsIds,
+        //     'price': this.data.totalPrice
+        // })
+        wx.navigateTo({
+            url: '/packageB/virtualdetail/virtualdetail',
+        })
     }
 })
