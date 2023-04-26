@@ -1,0 +1,36 @@
+<view wx:if="{{islogin==false}}">
+    <van-empty image="error" description="未登录，无法查看" />
+</view>
+<view wx:else>
+    <view class="accont">
+        <text class="total-text">账户余额：</text>
+        <text class="total-num">{{userAccount}}</text>
+    </view>
+    <view style="height: 30rpx;"></view>
+    <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="info-o" text="{{noticeText}}" />
+    <view class="recharge">
+        <view class="recharge-title">
+            <text class="recharge-text">请选择金额充值</text>
+        </view>
+        <view class="recharge-button">
+            <van-grid column-num="3" gutter="{{ 10 }}">
+                <van-grid-item wx:for="{{rechargeList}}" wx:key="id" data-index="{{index}}" bindtap="previewImg" use-slot gutter="3rpx">
+                    <text>{{item.text}}</text>
+                </van-grid-item>
+            </van-grid>
+        </view>
+    </view>
+    <view class="bill">
+        <view class="bill-title">
+            <text class="bill-text">请输入充值账单</text>
+        </view>
+        <van-cell-group>
+            <van-field model:value="{{ rechargeOrder.bill }}" size="large" type="number" required clearable label="转账单号" placeholder="请输入账单号" bind:blur="loseBill"/>
+            <view style="height: 30rpx;"></view>
+            <van-field model:value="{{ rechargeOrder.account }}" size="large" type="number" required clearable label="充值金额" placeholder="请输入充值金额" bind:blur="loseAccount" />
+        </van-cell-group>
+        <view style="padding:20px 15px">
+            <van-button bindtap="save" type="primary" size="large">保存并提交</van-button>
+        </view>
+    </view>
+</view>

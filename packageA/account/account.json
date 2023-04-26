@@ -1,0 +1,13 @@
+{
+    "navigationBarTitleText": "我的账户",
+    "usingComponents": {
+        "van-empty": "@vant/weapp/empty/index",
+        "van-notice-bar": "@vant/weapp/notice-bar/index",
+        "van-grid": "@vant/weapp/grid/index",
+        "van-grid-item": "@vant/weapp/grid-item/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-button": "@vant/weapp/button/index"
+    }
+}
