@@ -1,0 +1,16 @@
+<view class="videoplay">
+    <video class="video" id="video" src="{{videoSrc}}" bindtimeupdate="timeupdate" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls ></video>
+    <view class="danmu">
+        <input class="input" bindblur="bindInputBlur" placeholder="{{placeholder}}" value="{{inputValue}}" auto-focus />
+        <button class="send" bindtap="bindSendDanmu">发送弹幕</button>
+    </view>
+</view>
+
+<view>
+    <button style="width: 100%;height: 80rpx;" bindtap="showDanmu">点击显示</button>
+</view>
+
+
+<view style="position:fixed;bottom:0;height:100rpx;width:750rpx;background-color: rgb(255, 255, 255);">
+    <button style="border-color: skyblue;" bindtap="gotoVR">点击进入VR</button>
+</view>
