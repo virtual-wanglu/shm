@@ -15,7 +15,7 @@ Page({
             title: "",
             desc: "",
             image: []
-        },
+        }
     },
 
     /**
@@ -124,6 +124,7 @@ Page({
 
     },
     onClickPurchase() {
+        var that=this
         if (!this.data.loginStatus) {
             wx.showToast({
                 title: '请用户先登录',
@@ -131,8 +132,17 @@ Page({
                 duration: 2000
             })
         } else {
+            var id=this.data.goods.id
+            var shoppingId=parseInt(id)
+            let goodsIds=[]
+            goodsIds[0]=shoppingId
+            var msg = JSON.stringify({
+                /*将对象转换成json字符串形式*/
+                'goodsIds': goodsIds,
+                'price': this.data.goods.price
+            })
             wx.navigateTo({
-                url: '/packageB/purchase/purchase',
+                url: '/packageB/purchase/purchase?msg='+msg,
             })
         }
     }

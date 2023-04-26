@@ -1,2 +1,37 @@
-<!--packageA/order/order.wxml-->
-<text>packageA/order/order.wxml</text>
+<van-tabs swipeable ellipsis="false" bind:click="changeTab">
+    <van-tab title="全部">
+        <view wx:for="{{orderList}}" wx:key="id">
+            <view class="div2">
+                <van-card num="{{item.number}}" price="{{item.price}}" title="{{item.title}}" thumb="{{item.imgUrl1}}">
+                </van-card>
+                <van-cell title="配送服务" is-link value="{{item.freight}}"></van-cell>
+                <van-cell title="开具发票" is-link value="{{item.invoice}}"></van-cell>
+                <van-cell title="订单备注" is-link value="{{item.orderNote}}"></van-cell>
+            </view>
+        </view>
+    </van-tab>
+    <van-tab title="未支付">
+        <view wx:for="{{audiodata[0].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="未发货">
+        <view wx:for="{{audiodata[1].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="已发货">
+        <view wx:for="{{audiodata[2].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+    <van-tab title="已收货">
+        <view wx:for="{{audiodata[5].list}}" wx:key="id">
+            <view class="empty"></view>
+            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
+        </view>
+    </van-tab>
+</van-tabs>
