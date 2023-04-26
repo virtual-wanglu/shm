@@ -10,6 +10,7 @@
       "root":"packageA",
       "name": "package-mine",
       "pages": [
+        "account/account",
         "address/address",
         "order/order",
         "feedback/feedback",
@@ -26,7 +27,9 @@
         "addaddress/addaddress",
         "detail/detail",
         "shoppingcart/shoppingcart",
-        "roomnavigation/roomnavigation"
+        "roomnavigation/roomnavigation",
+        "virtualdetail/virtualdetail",
+        "view3D/view3D"
       ]
     }
   ],
@@ -39,7 +42,7 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/navigation/navigation",
-      "text": "导航",
+      "text": "导游",
       "iconPath": "/images/navigation.png",
       "selectedIconPath": "/images/navigation_active.png"
     },

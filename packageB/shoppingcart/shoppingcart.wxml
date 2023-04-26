@@ -2,7 +2,7 @@
 <button type="primary" bindtap="showList">点击显示</button>
 </view> -->
 
-<view wx:if="{{shoppingCartList==null}}">
+<view wx:if="{{!shoppingCartList}}">
     <van-empty image="" description="购物车为空" />
 </view>
 <view wx:else>

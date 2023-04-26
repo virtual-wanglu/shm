@@ -101,7 +101,7 @@ Page({
         this.setData({
             ['shoppingCartList[' + index + '].select']: false,
             totalPrice: sum,
-            allSelected:false
+            allSelected: false
         })
     },
 
@@ -151,5 +151,35 @@ Page({
             allSelected: true,
             totalPrice: sum,
         })
+    },
+
+    goToOrderSubmit() {
+        if (!this.data.totalPrice) {
+            wx.showToast({
+                title: '请选择物品购买',
+                icon: 'error',
+                duration: 1500
+            })
+        } else {
+            var list = this.data.shoppingCartList
+            var length = list.length
+            let goodsIds=[]
+            let j=0;
+            for (var i = 0; i < length; i++) {
+                var goods = list[i]
+                if (goods.select) {
+                    goodsIds[j]=goods.shoppingId,
+                    j=j+1
+                }
+            }
+            var msg = JSON.stringify({
+                /*将对象转换成json字符串形式*/
+                'goodsIds': goodsIds,
+                'price': this.data.totalPrice
+            })
+            wx.navigateTo({
+                url: '/packageB/purchase/purchase?msg='+msg,
+            })
+        }
     }
 })
