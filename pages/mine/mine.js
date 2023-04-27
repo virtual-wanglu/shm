@@ -39,7 +39,7 @@ Page({
                             })
                             console.log(msg),
                             wx.request({
-                                url: 'http://127.0.0.1:8080/wx/login',
+                                url: 'http://127.0.0.1:8080/user/login',
                                 method: 'POST',
                                 data:msg,
                                 success(res) {
