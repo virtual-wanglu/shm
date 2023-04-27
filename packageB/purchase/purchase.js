@@ -6,10 +6,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        openid: "o9SnK4u5GKs_ONTe-6P34disttIk",
-        goodsIds: [2, 1, 4, 5],
+        openid: "",
+        goodsIds: [],
         goodsList: [],
-        price: 288,
+        price: 0,
         userAddress: null
     },
 
@@ -142,8 +142,7 @@ Page({
                 quantity: list[i].number,
                 payment: money,
                 addressId: this.data.userAddress.addressId,
-                isPay: 0,
-                isReceipt: 0,
+                orderStatus:1,
                 freight: list[i].freight,
                 invoice: list[i].invoice,
                 orderNote: list[i].orderNote
