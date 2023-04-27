@@ -1,6 +1,6 @@
 <van-tabs swipeable ellipsis="false" bind:click="changeTab">
     <van-tab title="全部">
-        <view wx:for="{{orderList}}" wx:key="id">
+        <view wx:for="{{orderList}}" wx:key="index">
             <view class="card">
                 <van-card num="{{item.number}}" price="{{item.price}}" title="{{item.title}}" thumb="{{item.imgUrl1}}">
                     <view slot="tags">
@@ -9,11 +9,12 @@
                     </view>
                 </van-card>
                 <van-cell title="订单备注" value="{{item.orderNote}}"></van-cell>
+                <van-cell title="订单状态" value="{{orderStatus[item.status-1]}}"></van-cell>
             </view>
         </view>
     </van-tab>
     <van-tab title="未支付">
-        <view wx:for="{{noPayList}}" wx:key="id">
+        <view wx:for="{{noPayList}}" wx:key="index">
             <view class="card">
                 <van-card num="{{item.number}}" price="{{item.price}}" title="{{item.title}}" thumb="{{item.imgUrl1}}">
                     <view slot="tags">
@@ -22,11 +23,20 @@
                     </view>
                 </van-card>
                 <van-cell title="订单备注" value="{{item.orderNote}}"></van-cell>
+                <view class="bottom">
+                    <view style="width: 280rpx;"></view>
+                    <button data-index="{{index}}" class="bottom-button" bindtap="cancleOrder">
+                        <text class="button-text">取消订单</text>
+                    </button>
+                    <button data-index="{{index}}" class="bottom-button" bindtap="payOrder">
+                        <text class="button-text">立即支付</text>
+                    </button>
+                </view>
             </view>
         </view>
     </van-tab>
     <van-tab title="未发货">
-        <view wx:for="{{noSendList}}" wx:key="id">
+        <view wx:for="{{noSendList}}" wx:key="index">
             <view class="card">
                 <van-card num="{{item.number}}" price="{{item.price}}" title="{{item.title}}" thumb="{{item.imgUrl1}}">
                     <view slot="tags">
@@ -35,11 +45,17 @@
                     </view>
                 </van-card>
                 <van-cell title="订单备注" value="{{item.orderNote}}"></van-cell>
+                <view class="bottom">
+                    <view style="width: 500rpx;"></view>
+                    <button class="bottom-button" bindtap="urge">
+                        <text class="button-text">催发货</text>
+                    </button>
+                </view>
             </view>
         </view>
     </van-tab>
     <van-tab title="已发货">
-        <view wx:for="{{sendList}}" wx:key="id">
+        <view wx:for="{{sendList}}" wx:key="index">
             <view class="card">
                 <van-card num="{{item.number}}" price="{{item.price}}" title="{{item.title}}" thumb="{{item.imgUrl1}}">
                     <view slot="tags">
@@ -48,11 +64,17 @@
                     </view>
                 </van-card>
                 <van-cell title="订单备注" value="{{item.orderNote}}"></van-cell>
+                <view class="bottom">
+                    <view style="width: 500rpx;"></view>
+                    <button data-index="{{index}}" class="bottom-button" bindtap="confirm">
+                        <text class="button-text">确认收货</text>
+                    </button>
+                </view>
             </view>
         </view>
     </van-tab>
     <van-tab title="已收货">
-        <view wx:for="{{confirmList}}" wx:key="id">
+        <view wx:for="{{confirmList}}" wx:key="index">
             <view class="card">
                 <van-card num="{{item.number}}" price="{{item.price}}" title="{{item.title}}" thumb="{{item.imgUrl1}}">
                     <view slot="tags">
@@ -61,6 +83,12 @@
                     </view>
                 </van-card>
                 <van-cell title="订单备注" value="{{item.orderNote}}"></van-cell>
+                <view class="bottom">
+                    <view style="width: 500rpx;"></view>
+                    <button class="bottom-button" bindtap="orderService">
+                        <text class="button-text">售后服务</text>
+                    </button>
+                </view>
             </view>
         </view>
     </van-tab>

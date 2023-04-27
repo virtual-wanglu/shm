@@ -7,82 +7,37 @@ Page({
      */
     data: {
         openid: "",
-        orderList: [{
-                freight: "送运费险",
-                imgUrl1: "http://121.196.227.203:8000/images/5-0.jpg",
-                invoice: "电子发票-个人",
-                number: 2,
-                orderNote: "无备注",
-                price: 238,
-                shoppingId: 5,
-                title: "车载空气消毒除味器",
-                orderStatus: 1
-            },
-            {
-                freight: "送运费险",
-                imgUrl1: "http://121.196.227.203:8000/images/4-0.jpg",
-                invoice: "电子发票-个人",
-                number: 2,
-                orderNote: "无备注",
-                price: 118,
-                shoppingId: 4,
-                title: "郑州大学平面图抱枕",
-                orderStatus: 2
-            },
-            {
-                freight: "送运费险",
-                imgUrl1: "http://121.196.227.203:8000/images/1-0.jpg",
-                invoice: "电子发票-个人",
-                number: 4,
-                orderNote: "无备注",
-                price: 100,
-                shoppingId: 1,
-                title: "笔记本",
-                orderStatus: 3
-            },
-            {
-                freight: "送运费险",
-                imgUrl1: "http://121.196.227.203:8000/images/2-0.jpg",
-                invoice: "电子发票-个人",
-                number: 4,
-                orderNote: "无备注",
-                price: 60,
-                shoppingId: 2,
-                title: "鼠标垫",
-                orderStatus: 4
-            }
-        ],
+        orderList: [],
         noPayList: [],
         noSendList: [],
         sendList: [],
         confirmList: [],
-
+        orderStatus: ["未支付", "未发货", "已发货", "已收货"]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.selectList()
-        // console.log(app.globalData.userlogin)
-        // if (app.globalData.userlogin) {
-        //     this.setData({
-        //         openid: app.globalData.useropenId
-        //     })
-        //     this.loadOrderList()
-        // } else {
-        //     wx.showModal({
-        //         title: '提示',
-        //         content: '请登录后进入',
-        //         success(res) {
-        //             if (res.confirm) {
-        //                 wx.navigateBack({})
-        //             } else if (res.cancel) {
-        //                 wx.navigateBack({})
-        //             }
-        //         }
-        //     })
-        // }
+        console.log(app.globalData.userlogin)
+        if (app.globalData.userlogin) {
+            this.setData({
+                openid: app.globalData.useropenId
+            })
+            this.loadOrderList()
+        } else {
+            wx.showModal({
+                title: '提示',
+                content: '请登录后进入',
+                success(res) {
+                    if (res.confirm) {
+                        wx.navigateBack({})
+                    } else if (res.cancel) {
+                        wx.navigateBack({})
+                    }
+                }
+            })
+        }
     },
 
     /**
@@ -136,7 +91,6 @@ Page({
 
     changeTab(e) {
         console.log(e)
-        
     },
 
     loadOrderList() {
@@ -153,6 +107,7 @@ Page({
                 that.setData({
                     orderList: res.data
                 })
+                that.selectList()
             }
         })
     },
@@ -165,16 +120,16 @@ Page({
         var length = orderList.length
         for (var i = 0; i < length; i++) {
             console.log(orderList[i])
-            if (orderList[i].orderStatus == 1) {
+            if (orderList[i].status == 1) {
                 noPayList.push(orderList[i])
             }
-            if (orderList[i].orderStatus == 2) {
+            if (orderList[i].status == 2) {
                 noSendList.push(orderList[i])
             }
-            if (orderList[i].orderStatus == 3) {
+            if (orderList[i].status == 3) {
                 sendList.push(orderList[i])
             }
-            if (orderList[i].orderStatus == 4) {
+            if (orderList[i].status == 4) {
                 confirmList.push(orderList[i])
             }
         }
@@ -188,5 +143,95 @@ Page({
         console.log(this.data.noSendList)
         console.log(this.data.sendList)
         console.log(this.data.confirmList)
+    },
+
+    cancleOrder(e) {
+        var that = this
+        var index = e.currentTarget.dataset.index
+        var noPayOrder = this.data.noPayList[index]
+        var msg = JSON.stringify({
+            orderId: noPayOrder.orderId
+        })
+        wx.request({
+            url: 'http://127.0.0.1:8080/order/cancel',
+            method: 'POST',
+            data: msg,
+            success: function (res) {
+                console.log(res)
+                that.loadOrderList()
+            }
+        })
+    },
+
+    payOrder(e) {
+        var that = this
+        var index = e.currentTarget.dataset.index
+        var noPayOrder = this.data.noPayList[index]
+        var msg = JSON.stringify({
+            openid: this.data.openid,
+            orderId: noPayOrder.orderId,
+            payment: noPayOrder.price
+        })
+        wx.request({
+            url: 'http://127.0.0.1:8080/order/pay',
+            method: 'POST',
+            data: msg,
+            success: function (res) {
+                console.log(res)
+                if (res.data == "ok") {
+                    wx.showToast({
+                        title: '购买成功',
+                        icon: 'success'
+                    })
+                    that.loadOrderList()
+                } else {
+                    wx.showToast({
+                        title: '余额不足',
+                        icon: 'error'
+                    })
+                }
+            }
+        })
+    },
+
+    urge(e) {
+        wx.showModal({
+            title: '提示',
+            content: '已催商家发货，请用户耐心等待',
+            complete: (res) => {
+                if (res.cancel) {
+
+                }
+
+                if (res.confirm) {
+
+                }
+            }
+        })
+    },
+
+    confirm(e) {
+        var that = this
+        var index = e.currentTarget.dataset.index
+        var sendList = this.data.sendList[index]
+        var msg = JSON.stringify({
+            orderId: sendList.orderId
+        })
+        wx.request({
+            url: 'http://127.0.0.1:8080/order/confirm',
+            method: 'POST',
+            data: msg,
+            success: function (res) {
+                console.log(res)
+                that.loadOrderList()
+            }
+        })
+    },
+
+    orderService(){
+        wx.navigateTo({
+          url: '/packageB/shoppingservice/shoppingservice',
+        })
     }
+
 })
