@@ -16,6 +16,7 @@ Page({
                 price: 238,
                 shoppingId: 5,
                 title: "车载空气消毒除味器",
+                orderStatus: 1
             },
             {
                 freight: "送运费险",
@@ -26,6 +27,7 @@ Page({
                 price: 118,
                 shoppingId: 4,
                 title: "郑州大学平面图抱枕",
+                orderStatus: 2
             },
             {
                 freight: "送运费险",
@@ -36,6 +38,7 @@ Page({
                 price: 100,
                 shoppingId: 1,
                 title: "笔记本",
+                orderStatus: 3
             },
             {
                 freight: "送运费险",
@@ -46,8 +49,13 @@ Page({
                 price: 60,
                 shoppingId: 2,
                 title: "鼠标垫",
+                orderStatus: 4
             }
         ],
+        noPayList: [],
+        noSendList: [],
+        sendList: [],
+        confirmList: [],
 
     },
 
@@ -55,25 +63,26 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(app.globalData.userlogin)
-        if (!app.globalData.userlogin) {
-            wx.showModal({
-                title: '提示',
-                content: '请登录后进入',
-                success(res) {
-                    if (res.confirm) {
-                        wx.navigateBack({})
-                    } else if (res.cancel) {
-                        wx.navigateBack({})
-                    }
-                }
-            })
-        } else {
-            this.setData({
-                openid: app.globalData.useropenId
-            })
-            this.loadOrderList()
-        }
+        this.selectList()
+        // console.log(app.globalData.userlogin)
+        // if (app.globalData.userlogin) {
+        //     this.setData({
+        //         openid: app.globalData.useropenId
+        //     })
+        //     this.loadOrderList()
+        // } else {
+        //     wx.showModal({
+        //         title: '提示',
+        //         content: '请登录后进入',
+        //         success(res) {
+        //             if (res.confirm) {
+        //                 wx.navigateBack({})
+        //             } else if (res.cancel) {
+        //                 wx.navigateBack({})
+        //             }
+        //         }
+        //     })
+        // }
     },
 
     /**
@@ -127,6 +136,7 @@ Page({
 
     changeTab(e) {
         console.log(e)
+        
     },
 
     loadOrderList() {
@@ -145,5 +155,38 @@ Page({
                 })
             }
         })
+    },
+    selectList() {
+        var noPayList = []
+        var noSendList = []
+        var sendList = []
+        var confirmList = []
+        var orderList = this.data.orderList
+        var length = orderList.length
+        for (var i = 0; i < length; i++) {
+            console.log(orderList[i])
+            if (orderList[i].orderStatus == 1) {
+                noPayList.push(orderList[i])
+            }
+            if (orderList[i].orderStatus == 2) {
+                noSendList.push(orderList[i])
+            }
+            if (orderList[i].orderStatus == 3) {
+                sendList.push(orderList[i])
+            }
+            if (orderList[i].orderStatus == 4) {
+                confirmList.push(orderList[i])
+            }
+        }
+        this.setData({
+            noPayList: noPayList,
+            noSendList: noSendList,
+            sendList: sendList,
+            confirmList: confirmList
+        })
+        console.log(this.data.noPayList)
+        console.log(this.data.noSendList)
+        console.log(this.data.sendList)
+        console.log(this.data.confirmList)
     }
 })
