@@ -62,5 +62,16 @@ Page({
      */
     onShareAppMessage() {
 
-    }
+    },
+
+    previewImg: function (e) {
+        console.log(e)
+        var imgUrl = [this.data.serviceImgUrl]
+        wx.previewImage({
+            urls: imgUrl,
+            success: function (res) {},
+            fail: function (res) {},
+            complete: function (res) {},
+        })
+    },
 })
