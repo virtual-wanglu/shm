@@ -49,6 +49,7 @@ Page({
             islogin: app.globalData.userlogin,
             openid: app.globalData.useropenId,
         })
+        this.getUserAccount()
     },
 
     /**
@@ -98,6 +99,24 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    getUserAccount() {
+        var that = this
+        var msg=JSON.stringify({
+            openid:this.data.openid
+        })
+        wx.request({
+            url: 'http://127.0.0.1:8080/user/getProperty',
+            method: 'POST',
+            data: msg,
+            success: function (res) {
+                console.log(res)
+                that.setData({
+                    userAccount:res.data
+                })
+            }
+        })
     },
 
     previewImg: function (e) {
@@ -158,7 +177,7 @@ Page({
                     })
                 }
             })
-        }else{
+        } else {
             wx.showToast({
                 icon: 'error',
                 title: '输入内容不能为空',
