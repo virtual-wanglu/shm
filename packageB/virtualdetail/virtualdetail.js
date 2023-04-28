@@ -27,6 +27,14 @@ Page({
             color: "",
             time: "",
         },
+        imageList:[
+            "http://121.196.227.203:8000/images/firstHall/01.jpg",
+            "http://121.196.227.203:8000/images/firstHall/02.jpg",
+            "http://121.196.227.203:8000/images/firstHall/03.jpg",
+            "http://121.196.227.203:8000/images/firstHall/04.jpg",
+            "http://121.196.227.203:8000/images/firstHall/05.jpg",
+            "http://121.196.227.203:8000/images/firstHall/06.jpg",
+        ]
     },
 
     /**
@@ -151,5 +159,18 @@ Page({
     showDanmu() {
         console.log(this.data.danmu)
         console.log(this.data.danmuList)
-    }
+    },
+
+    previewImg: function (e) {
+        var current=this.data.imageList[0]
+        console.log(e)
+        var imgUrls = this.data.imageList
+        wx.previewImage({
+            current:current,
+            urls: imgUrls,
+            success: function (res) {},
+            fail: function (res) {},
+            complete: function (res) {},
+        })
+    },
 })

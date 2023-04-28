@@ -1,5 +1,5 @@
 <view class="videoplay">
-    <video class="video" id="video" src="{{videoSrc}}" bindtimeupdate="timeupdate" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls ></video>
+    <video class="video" id="video" src="{{videoSrc}}" bindtimeupdate="timeupdate" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
     <view class="danmu">
         <input class="input" bindblur="bindInputBlur" placeholder="{{placeholder}}" value="{{inputValue}}" auto-focus />
         <button class="send" bindtap="bindSendDanmu">发送弹幕</button>
@@ -8,6 +8,10 @@
 
 <view>
     <button style="width: 100%;height: 80rpx;" bindtap="showDanmu">点击显示</button>
+</view>
+
+<view class="picture">
+    <image style="width: 750rpx;" src="{{imageList[0]}}" mode="widthFix" bindtap="previewImg"></image>
 </view>
 
 
