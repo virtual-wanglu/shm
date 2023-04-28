@@ -10,7 +10,9 @@ Page({
         goodsIds: [],
         goodsList: [],
         price: 0,
-        userAddress: null
+        userProperty: 0,
+        userAddress: null,
+        orderStatus: 1
     },
 
     /**
@@ -26,6 +28,25 @@ Page({
         })
         this.getUserAddress()
         this.getUserGoods()
+        this.getUserAccount()
+    },
+
+    getUserAccount() {
+        var that = this
+        var msg = JSON.stringify({
+            openid: this.data.openid
+        })
+        wx.request({
+            url: 'http://127.0.0.1:8080/user/getProperty',
+            method: 'POST',
+            data: msg,
+            success: res => {
+                console.log(res)
+                that.setData({
+                    userProperty: res.data
+                })
+            }
+        })
     },
 
     getUserAddress() {
@@ -126,11 +147,61 @@ Page({
     },
 
     goToOrderSubmit() {
-        this.createOrder()
+        var userProperty = this.data.userProperty
+        var price = this.data.price
+        if (price > userProperty) {
+            this.createOrder()
+            wx.showModal({
+                title: '提示',
+                content: '余额不足，请充值',
+                complete: (res) => {
+                    if (res.cancel) {
+
+                    }
+
+                    if (res.confirm) {
+
+                    }
+                }
+            })
+        } else {
+            this.payOrder()
+            wx.showModal({
+                title: '提示',
+                content: '购买成功',
+                complete: (res) => {
+                    if (res.cancel) {
+                        wx.navigateBack()
+                    }
+                    if (res.confirm) {
+                        wx.navigateBack()
+                    }
+                }
+            })
+        }
+    },
+
+    payOrder() {
+        var that = this
+        var msg = JSON.stringify({
+            'openid': this.data.openid,
+            'price': this.data.price,
+        })
+        wx.request({
+            url: 'http://127.0.0.1:8080/purchase/submit',
+            method: 'POST',
+            data: msg,
+            success: res => {
+                that.setData({
+                    orderStatus: 2
+                })
+                that.createOrder()
+            }
+        })
     },
 
     createOrder() {
-        var that=this
+        var that = this
         var list = this.data.goodsList
         var length = list.length
         var orders = []
@@ -142,7 +213,7 @@ Page({
                 quantity: list[i].number,
                 payment: money,
                 addressId: this.data.userAddress.addressId,
-                orderStatus:1,
+                orderStatus: this.data.orderStatus,
                 freight: list[i].freight,
                 invoice: list[i].invoice,
                 orderNote: list[i].orderNote
