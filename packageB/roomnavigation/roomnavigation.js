@@ -8,7 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        image: "https://lzpi1.grass.wang/image/preview/148214e8-055d-41b2-a4fa-3a88409b9b23.jpg",
+        image: "http://121.196.227.203:8000/images/shm.jpg",
         bottomPlayer: {
             img: "",
             audioUrl_zh: "",
