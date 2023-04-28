@@ -1,9 +1,9 @@
 /* packageB/detail/detail.wxss */
 
   /* 单元格标题title */
-  .van-cell .van-cell__title {
+  .custom-title{
     color: red;
-    font-size: 20px;
+    font-size: 30px;
   }
    
   /* 标题下方label */

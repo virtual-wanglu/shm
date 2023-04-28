@@ -4,7 +4,7 @@
 <!-- 自动播放、有指示点的轮播图组件 -->
 <swiper class="banners" indicator-dots autoplay circular="{{true}}" indicator-active-color="#d43c33" indicator-color="ivory">
     <swiper-item wx:for="{{goods.image}}" wx:key="id">
-      <image class="img" src="{{item.url}}" />
+        <image class="img" src="{{item.url}}" />
     </swiper-item>
 </swiper>
 
@@ -12,18 +12,27 @@
 <text>\n\n</text>
 
 <van-cell-group inset>
-  <van-cell title="¥{{goods.price}}"/>
-  <van-cell label="{{goods.desc}}"/>
+    <van-cell>
+        <view slot="title">
+            <text class="custom-title">¥{{goods.price}}</text>
+        </view>
+    </van-cell>
+    <van-cell label="{{goods.desc}}" />
+</van-cell-group>
+<view style="height: 50rpx;"></view>
+<van-cell-group inset>
+    <van-cell icon="/images/express.png" title="河南郑州" value="邮政·免邮" size="large" label="付款后3天内发货" />
+    <van-cell icon="/images/return.png" title="退货运费险" value="退货请联系客服" size="large" />
+    <van-cell icon="/images/select.png" title="无分类" value="商品如图所示" size="large" />
+    <van-cell icon="/images/merchant.png" title="商家" value="见微" size="large" />
 </van-cell-group>
 
 
+<view style="height: 200rpx;"></view>
+
 <van-goods-action>
-  <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickService" />
-  <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickShoppingCart" />
-  <van-goods-action-button
-    text="加入购物车"
-    type="warning"
-    bind:click="onClickAddCart"
-  />
-  <van-goods-action-button text="立即购买" bind:click="onClickPurchase" />
+    <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickService" />
+    <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickShoppingCart" />
+    <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickAddCart" />
+    <van-goods-action-button text="立即购买" bind:click="onClickPurchase" />
 </van-goods-action>
