@@ -40,7 +40,7 @@ Page({
         let obj = JSON.parse(options.msg);
         this.setData({
             roomId: obj.roomId,
-            videoSrc:obj.videoUrl
+            videoSrc: obj.videoUrl
         })
         this.loadImages()
         this.danmuList()
@@ -53,7 +53,7 @@ Page({
             roomId: this.data.roomId
         })
         wx.request({
-            url: app.globalData.serviceUrl+'/images/getImages',
+            url: app.globalData.serviceUrl + '/images/getImages',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -69,7 +69,7 @@ Page({
         var that = this
         var room_id = JSON.stringify(this.data.roomId)
         wx.request({
-            url: app.globalData.serviceUrl+'/danmu/getDanMu',
+            url: app.globalData.serviceUrl + '/danmu/getDanMu',
             method: 'POST',
             data: room_id,
             success: function (res) {
@@ -130,15 +130,17 @@ Page({
 
 
     gotoVR() {
-        var roomId=this.data.roomId
+        var roomId = this.data.roomId
         console.log(roomId)
         wx.navigateTo({
-            url: '/packageB/view3D/view3D?roomId='+roomId,
+            url: '/packageB/view3D/view3D?roomId=' + roomId,
         })
     },
 
     bindInputBlur: function (e) {
-        this.data.inputValue = e.detail.value
+        this.setData({
+            inputValue: e.detail.value
+        })
     },
 
     timeupdate(e) {
@@ -151,32 +153,43 @@ Page({
 
     bindSendDanmu: function (e) {
         var that = this
-        this.videoCtx.sendDanmu({
-            text: this.data.inputValue,
-            color: getRandomColor()
-        })
-        this.setData({
-            ['danmu.text']: this.data.inputValue,
-            ['danmu.color']: getRandomColor(),
-            ['danmu.time']: this.data.currentTime
-        })
-        var msg = JSON.stringify({
-            roomId: that.data.roomId,
-            danmuText: that.data.danmu.text,
-            danmuColor: that.data.danmu.color,
-            danmuTime: that.data.danmu.time
-        })
-        wx.request({
-            url: app.globalData.serviceUrl+'/danmu/inputDanMu',
-            method: 'POST',
-            data: msg,
-            success: function (res) {
-                console.log(res)
-                that.setData({
-                    inputValue: ""
-                })
-            }
-        })
+        if (this.data.inputValue == "") {
+            wx.showToast({
+              title: '评论内容不能为空',
+              icon:'error'
+            })
+        } else {
+            this.videoCtx.sendDanmu({
+                text: this.data.inputValue,
+                color: getRandomColor()
+            })
+            this.setData({
+                ['danmu.text']: this.data.inputValue,
+                ['danmu.color']: getRandomColor(),
+                ['danmu.time']: this.data.currentTime
+            })
+            var msg = JSON.stringify({
+                roomId: that.data.roomId,
+                danmuText: that.data.danmu.text,
+                danmuColor: that.data.danmu.color,
+                danmuTime: that.data.danmu.time
+            })
+            wx.request({
+                url: app.globalData.serviceUrl + '/danmu/inputDanMu',
+                method: 'POST',
+                data: msg,
+                success: function (res) {
+                    console.log(res)
+                    that.setData({
+                        inputValue: ""
+                    })
+                }
+            })  
+            wx.showToast({
+                title: '发送成功',
+                icon:'success'
+              })
+        }
     },
     showDanmu() {
         console.log(this.data.danmu)
