@@ -25,7 +25,7 @@ Page({
         var openid = this.data.openid
         console.log(openid)
         wx.request({
-            url: 'http://127.0.0.1:8080/shopping/shoppingcart',
+            url: app.globalData.serviceUrl+'/shopping/shoppingcart',
             method: 'POST',
             data: openid,
             success: function (res) {

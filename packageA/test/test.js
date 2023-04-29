@@ -1,4 +1,6 @@
 // packageA/test/test.js
+const app = getApp()
+
 Page({
 
     /**
@@ -21,7 +23,7 @@ Page({
         })
         console.log(msg)
         wx.request({
-            url: 'http://127.0.0.1:8080/feedback/upload',
+            url: app.globalData.serviceUrl+'/feedback/upload',
             method: 'POST',
             data: msg,
             success(e) {

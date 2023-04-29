@@ -1,6 +1,7 @@
 const innerAudioContext = wx.createInnerAudioContext({
     useWebAudioImplement: true
 })
+const app = getApp()
 
 Page({
     audioCtx: null,

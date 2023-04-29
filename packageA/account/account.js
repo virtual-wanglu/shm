@@ -107,7 +107,7 @@ Page({
             openid:this.data.openid
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/user/getProperty',
+            url: app.globalData.serviceUrl+'/user/getProperty',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -155,7 +155,7 @@ Page({
                 handle: 0
             })
             wx.request({
-                url: 'http://127.0.0.1:8080/recharge/commit',
+                url: app.globalData.serviceUrl+'/recharge/commit',
                 method: 'POST',
                 data: msg,
                 success: function (res) {

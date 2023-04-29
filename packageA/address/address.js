@@ -70,7 +70,7 @@ Page({
         var openid=this.data.openid
         if(openid){
             wx.request({
-              url: 'http://127.0.0.1:8080/address/user',
+              url: app.globalData.serviceUrl+'/address/user',
               method:'POST',
               data:openid,
               success: function (res){

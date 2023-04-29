@@ -1,4 +1,6 @@
 // miniprogram/pages/new-address/index.js
+const app = getApp()
+
 Page({
 
     /**
@@ -57,7 +59,7 @@ Page({
 
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/address/add',
+            url: app.globalData.serviceUrl+'/address/add',
             method: 'POST',
             data: addressInfo,
             success: function (res) {

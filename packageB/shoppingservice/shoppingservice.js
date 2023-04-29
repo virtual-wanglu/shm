@@ -1,4 +1,7 @@
 // packageB/shoppingservice/shoppingservice.js
+
+const app = getApp()
+
 Page({
 
     /**

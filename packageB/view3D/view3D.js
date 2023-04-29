@@ -1,4 +1,7 @@
 // packageB/view3D/view3D.js
+
+const app = getApp()
+
 Page({
 
     /**

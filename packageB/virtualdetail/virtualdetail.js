@@ -8,6 +8,8 @@ function getRandomColor() {
     return '#' + rgb.join('')
 }
 
+const app = getApp()
+
 
 Page({
     videoCtx: null,
@@ -51,7 +53,7 @@ Page({
             roomId: this.data.roomId
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/images/getImages',
+            url: app.globalData.serviceUrl+'/images/getImages',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -67,7 +69,7 @@ Page({
         var that = this
         var room_id = JSON.stringify(this.data.roomId)
         wx.request({
-            url: 'http://127.0.0.1:8080/danmu/getDanMu',
+            url: app.globalData.serviceUrl+'/danmu/getDanMu',
             method: 'POST',
             data: room_id,
             success: function (res) {
@@ -165,7 +167,7 @@ Page({
             danmuTime: that.data.danmu.time
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/danmu/inputDanMu',
+            url: app.globalData.serviceUrl+'/danmu/inputDanMu',
             method: 'POST',
             data: msg,
             success: function (res) {

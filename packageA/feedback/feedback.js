@@ -60,7 +60,7 @@
                  'tel': contact
              })
              wx.request({
-                 url: 'http://localhost:8080/feedback/upload',
+                 url: app.globalData.serviceUrl+'/feedback/upload',
                  method: 'POST',
                  data: msg,
                  success: function (res) {

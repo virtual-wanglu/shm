@@ -37,7 +37,7 @@ Page({
             openid: this.data.openid
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/user/getProperty',
+            url: app.globalData.serviceUrl+'/user/getProperty',
             method: 'POST',
             data: msg,
             success: res => {
@@ -53,7 +53,7 @@ Page({
         var that = this
         var openid = this.data.openid
         wx.request({
-            url: 'http://127.0.0.1:8080/purchase/getAddress',
+            url: app.globalData.serviceUrl+'/purchase/getAddress',
             method: 'POST',
             data: openid,
             success: res => {
@@ -72,7 +72,7 @@ Page({
             'goodsIds': this.data.goodsIds,
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/purchase/getUserGoods',
+            url: app.globalData.serviceUrl+'/purchase/getUserGoods',
             method: 'POST',
             data: msg,
             success: res => {
@@ -188,7 +188,7 @@ Page({
             'price': this.data.price,
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/purchase/submit',
+            url: app.globalData.serviceUrl+'/purchase/submit',
             method: 'POST',
             data: msg,
             success: res => {
@@ -224,7 +224,7 @@ Page({
         var msg = JSON.stringify(orders)
         console.log(msg)
         wx.request({
-            url: 'http://127.0.0.1:8080/order/addOrder',
+            url: app.globalData.serviceUrl+'/order/addOrder',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -242,7 +242,7 @@ Page({
             goodsIds: goodsIds
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/shopping/clear',
+            url: app.globalData.serviceUrl+'/shopping/clear',
             method: 'POST',
             data: msg,
             success: function (res) {

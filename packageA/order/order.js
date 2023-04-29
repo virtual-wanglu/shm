@@ -99,7 +99,7 @@ Page({
             openid: this.data.openid
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/order/getOrder',
+            url: app.globalData.serviceUrl+'/order/getOrder',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -153,7 +153,7 @@ Page({
             orderId: noPayOrder.orderId
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/order/cancel',
+            url: app.globalData.serviceUrl+'/order/cancel',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -173,7 +173,7 @@ Page({
             payment: noPayOrder.price
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/order/pay',
+            url: app.globalData.serviceUrl+'/order/pay',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -218,7 +218,7 @@ Page({
             orderId: sendList.orderId
         })
         wx.request({
-            url: 'http://127.0.0.1:8080/order/confirm',
+            url: app.globalData.serviceUrl+'/order/confirm',
             method: 'POST',
             data: msg,
             success: function (res) {
