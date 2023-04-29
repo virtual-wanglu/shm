@@ -17,7 +17,7 @@ Page({
 
     data: {
         roomId: 0,
-        videoSrc: "http://121.196.227.203:8000/videos/1.mp4",
+        videoSrc: "",
         placeholder: "说点什么吧",
         inputValue: "",
         currentTime: 0,
@@ -27,22 +27,40 @@ Page({
             color: "",
             time: "",
         },
-        imageList:[
-            "http://121.196.227.203:8000/images/firstHall/01.jpg",
-            "http://121.196.227.203:8000/images/firstHall/02.jpg",
-            "http://121.196.227.203:8000/images/firstHall/03.jpg",
-            "http://121.196.227.203:8000/images/firstHall/04.jpg",
-            "http://121.196.227.203:8000/images/firstHall/05.jpg",
-            "http://121.196.227.203:8000/images/firstHall/06.jpg",
-        ]
+        imageList: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // this.danmuList()
-        // console.log(this.data.danmuList)
+        console.log(options)
+        let obj = JSON.parse(options.msg);
+        this.setData({
+            roomId: obj.roomId,
+            videoSrc:obj.videoUrl
+        })
+        this.loadImages()
+        this.danmuList()
+        console.log(this.data.danmuList)
+    },
+
+    loadImages() {
+        var that = this
+        var msg = JSON.stringify({
+            roomId: this.data.roomId
+        })
+        wx.request({
+            url: 'http://127.0.0.1:8080/images/getImages',
+            method: 'POST',
+            data: msg,
+            success: function (res) {
+                console.log(res)
+                that.setData({
+                    imageList: res.data
+                })
+            }
+        })
     },
 
     danmuList() {
@@ -110,8 +128,10 @@ Page({
 
 
     gotoVR() {
+        var roomId=this.data.roomId
+        console.log(roomId)
         wx.navigateTo({
-            url: '/packageB/view3D/view3D',
+            url: '/packageB/view3D/view3D?roomId='+roomId,
         })
     },
 
@@ -162,11 +182,11 @@ Page({
     },
 
     previewImg: function (e) {
-        var current=this.data.imageList[0]
+        var current = this.data.imageList[0]
         console.log(e)
         var imgUrls = this.data.imageList
         wx.previewImage({
-            current:current,
+            current: current,
             urls: imgUrls,
             success: function (res) {},
             fail: function (res) {},

@@ -30,11 +30,14 @@ Page({
                 text : "第四展厅"
             },
         ],
-        // videoSrcList:[
-        //     {
-        //         videoSrc:
-        //     }
-        // ],
+        videoSrcList:[
+            "http://121.196.227.203:8000/videos/pre.mp4",
+            "http://121.196.227.203:8000/videos/first.mp4",
+            "http://121.196.227.203:8000/videos/second.mp4",
+            "http://121.196.227.203:8000/videos/third.mp4",
+            "http://121.196.227.203:8000/videos/mid.mp4",
+            "http://121.196.227.203:8000/videos/four.mp4",
+        ],
     },
 
     /**
@@ -96,12 +99,12 @@ Page({
     gotToDetail(e) {
         console.log(e)
         var index=e.currentTarget.dataset.index
-        // var msg = JSON.stringify({
-        //     'videoSrc': goodsIds,
-        //     'price': this.data.totalPrice
-        // })
+        var msg=JSON.stringify({
+            roomId:index,
+            videoUrl:this.data.videoSrcList[index],
+        })
         wx.navigateTo({
-            url: '/packageB/virtualdetail/virtualdetail',
+            url: '/packageB/virtualdetail/virtualdetail?msg='+msg,
         })
     }
 })

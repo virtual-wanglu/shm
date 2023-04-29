@@ -5,14 +5,27 @@ Page({
      * 页面的初始数据
      */
     data: {
-        virtualUrl:"https://realsee.cn/wO22RN0x?refer_from=vrcapp_edit&vrAppVersion=3.14.2&product=realsee_vr&source=link#lianjia"
+        vrList:[
+            "https://realsee.cn/jG66LPK5?product=realsee_vr&entry=share&refer_from=vrcapp_edit&source=link",
+            "https://realsee.cn/Ml99oleg?product=realsee_vr&entry=share&refer_from=vrcapp_edit&source=link",
+            "https://realsee.cn/WQYYvElm?product=realsee_vr&entry=share&refer_from=vrcapp_edit&source=link",
+            "https://realsee.cn/EjwwZ0GX?refer_from=vrcapp_edit&vrAppVersion=3.14.2&product=realsee_vr&source=link#lianjia",
+            "https://realsee.cn/REQQ4oME?product=realsee_vr&entry=share&refer_from=vrcapp_edit&source=link",
+            "https://realsee.cn/2VMMaVmN?product=realsee_vr&entry=share&refer_from=vrcapp_edit&source=link"
+        ],
+        virtualUrl:""
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        console.log(options)
+        var index=options.roomId
+        console.log(index)
+        this.setData({
+            virtualUrl:this.data.vrList[index]
+        })
     },
 
     /**

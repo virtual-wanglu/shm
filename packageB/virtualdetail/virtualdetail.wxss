@@ -2,7 +2,7 @@
     display:flex;
     flex-direction: column;
     width: 100%;
-    height: 550rpx;
+    height: 580rpx;
     margin-top: 10rpx;
     overflow: hidden;
     background-color: rgb(206, 206, 206);
@@ -31,12 +31,40 @@
     width: 150rpx;
     background-color: rgb(104, 105, 104);
 }
+
+.div-pirture{
+    display:flex;
+    flex-direction: column;
+    width: 750rpx;
+    height: 650rpx;
+    overflow: hidden;
+    border-top-left-radius: 60rpx;
+    border-top-right-radius: 60rpx;
+    background-color: #F8F8FF;
+}
+
+.picture-title{
+    display:flex;
+    width: 750rpx;
+    height: 100rpx;
+    border-top-left-radius: 60rpx;
+    border-top-right-radius: 60rpx;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-text{  
+    font-size: 37rpx;
+    color: #333;
+}
+
 .picture{
     display:flex;
     width: 100%;
     height: 550rpx;
     margin-top: 10rpx;
     overflow: hidden;
-    background-color: rgb(145, 80, 80);
+    background-color: rgb(206, 206, 206);
+    box-shadow: 0px 0px 10px 2px rgb(0 0 0 / 8%);
     justify-content: center;
 }
