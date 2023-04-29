@@ -37,7 +37,7 @@ Page({
             openid: this.data.openid
         })
         wx.request({
-            url: app.globalData.serviceUrl+'/user/getProperty',
+            url: app.globalData.serviceUrl + '/user/getProperty',
             method: 'POST',
             data: msg,
             success: res => {
@@ -53,7 +53,7 @@ Page({
         var that = this
         var openid = this.data.openid
         wx.request({
-            url: app.globalData.serviceUrl+'/purchase/getAddress',
+            url: app.globalData.serviceUrl + '/purchase/getAddress',
             method: 'POST',
             data: openid,
             success: res => {
@@ -72,7 +72,7 @@ Page({
             'goodsIds': this.data.goodsIds,
         })
         wx.request({
-            url: app.globalData.serviceUrl+'/purchase/getUserGoods',
+            url: app.globalData.serviceUrl + '/purchase/getUserGoods',
             method: 'POST',
             data: msg,
             success: res => {
@@ -147,37 +147,54 @@ Page({
     },
 
     goToOrderSubmit() {
-        var userProperty = this.data.userProperty
-        var price = this.data.price
-        if (price > userProperty) {
-            this.createOrder()
+        var that=this
+        if (this.data.userAddress == null) {
             wx.showModal({
                 title: '提示',
-                content: '余额不足，请充值',
+                content: '请填写收货地址',
                 complete: (res) => {
                     if (res.cancel) {
 
                     }
 
                     if (res.confirm) {
-
+                        that.addUserAddres()
                     }
                 }
             })
         } else {
-            this.payOrder()
-            wx.showModal({
-                title: '提示',
-                content: '购买成功',
-                complete: (res) => {
-                    if (res.cancel) {
-                        wx.navigateBack()
+            var userProperty = this.data.userProperty
+            var price = this.data.price
+            if (price > userProperty) {
+                this.createOrder()
+                wx.showModal({
+                    title: '提示',
+                    content: '余额不足，请充值',
+                    complete: (res) => {
+                        if (res.cancel) {
+
+                        }
+
+                        if (res.confirm) {
+
+                        }
                     }
-                    if (res.confirm) {
-                        wx.navigateBack()
+                })
+            } else {
+                this.payOrder()
+                wx.showModal({
+                    title: '提示',
+                    content: '购买成功',
+                    complete: (res) => {
+                        if (res.cancel) {
+                            wx.navigateBack()
+                        }
+                        if (res.confirm) {
+                            wx.navigateBack()
+                        }
                     }
-                }
-            })
+                })
+            }
         }
     },
 
@@ -188,7 +205,7 @@ Page({
             'price': this.data.price,
         })
         wx.request({
-            url: app.globalData.serviceUrl+'/purchase/submit',
+            url: app.globalData.serviceUrl + '/purchase/submit',
             method: 'POST',
             data: msg,
             success: res => {
@@ -224,7 +241,7 @@ Page({
         var msg = JSON.stringify(orders)
         console.log(msg)
         wx.request({
-            url: app.globalData.serviceUrl+'/order/addOrder',
+            url: app.globalData.serviceUrl + '/order/addOrder',
             method: 'POST',
             data: msg,
             success: function (res) {
@@ -242,7 +259,7 @@ Page({
             goodsIds: goodsIds
         })
         wx.request({
-            url: app.globalData.serviceUrl+'/shopping/clear',
+            url: app.globalData.serviceUrl + '/shopping/clear',
             method: 'POST',
             data: msg,
             success: function (res) {
