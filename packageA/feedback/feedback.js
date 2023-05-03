@@ -7,7 +7,7 @@
      data: {
          loading: false,
          message: {
-             openId: "1233312356789",
+             openId: "",
              comment: "",
              tel: "",
          }
@@ -60,7 +60,7 @@
                  'tel': contact
              })
              wx.request({
-                 url: app.globalData.serviceUrl+'/feedback/upload',
+                 url: app.globalData.serviceUrl + '/feedback/upload',
                  method: 'POST',
                  data: msg,
                  success: function (res) {
@@ -105,6 +105,18 @@
                      }
                  }
              })
+         } else {
+             console.log(app.globalData.useropenId)
+             var message = {
+                 openId: "",
+                 comment: "",
+                 tel: "",
+             }
+             message.openId = app.globalData.useropenId
+             this.setData({
+                 message: message
+             })
+             console.log(this.data.message.openId)
          }
      },
  })
