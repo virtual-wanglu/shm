@@ -6,10 +6,14 @@ const app = getApp()
 Page({
     data: {
         avatarUrl: defaultAvatarUrl,
-        nickName: ""
+        nickName: "",
+        loginStatus:false
     },
 
     onLoad(option) {
+        this.setData({
+            loginStatus:app.globalData.userlogin
+        })
     },
 
     onChooseavatar(e) {

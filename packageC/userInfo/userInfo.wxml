@@ -1,14 +1,19 @@
-<view class="containar">
-    <view class="avatarUrl">
-        <button class="btn-img" type="balanced" open-type="chooseAvatar" plain bind:chooseavatar="onChooseavatar">
-            <image src="{{avatarUrl}}" class="refreshIcon"></image>
-        </button>
-    </view>
-    <view class="nickname">
-        <text>昵称：</text>
-        <input type="nickname" class="input" value="微信用户" bindblur="bindblur" placeholder="请输入昵称" bindinput="bindinput" />
-    </view>
+<view wx:if="{{loginStatus==false}}">
+    <van-empty image="error" description="未登录" />
 </view>
-<view class="btn">
-    <button type="default" class="btn-sub" bindtap="onSubmit">保存</button>
+<view wx:else>
+    <view class="containar">
+        <view class="avatarUrl">
+            <button class="btn-img" type="balanced" open-type="chooseAvatar" plain bind:chooseavatar="onChooseavatar">
+                <image src="{{avatarUrl}}" class="refreshIcon"></image>
+            </button>
+        </view>
+        <view class="nickname">
+            <text>昵称：</text>
+            <input type="nickname" class="input" value="微信用户" bindblur="bindblur" placeholder="请输入昵称" bindinput="bindinput" />
+        </view>
+    </view>
+    <view class="btn">
+        <button type="default" class="btn-sub" bindtap="onSubmit">保存</button>
+    </view>
 </view>
