@@ -1,6 +1,6 @@
 <swiper class="banners" indicator-dots autoplay circular="{{true}}" indicator-active-color="#d43c33" indicator-color="ivory">
-    <swiper-item wx:for="{{gridInfoList}}" wx:key="id">
-      <image class="img" src="{{item.icon}}" />
+    <swiper-item wx:for="{{imageList}}" wx:key="id">
+      <image class="img" src="{{item}}" />
     </swiper-item>
 </swiper>
 

@@ -5,6 +5,15 @@ Page({
      * 页面的初始数据
      */
     data: {
+        imageList:[
+            "http://121.196.227.203:8000/images/roomImage/door.jpg",
+            "http://121.196.227.203:8000/images/roomImage/pre.jpg",
+            "http://121.196.227.203:8000/images/roomImage/first.jpg",
+            "http://121.196.227.203:8000/images/roomImage/second.jpg",
+            "http://121.196.227.203:8000/images/roomImage/third.jpg",
+            "http://121.196.227.203:8000/images/roomImage/mid.jpg",
+            "http://121.196.227.203:8000/images/roomImage/four.jpg"
+        ],
         gridInfoList: [{
                 icon : "http://121.196.227.203:8000/images/roomImage/pre.jpg",
                 text : "序厅"
