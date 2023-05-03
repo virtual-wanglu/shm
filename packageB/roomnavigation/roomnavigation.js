@@ -11,10 +11,10 @@ Page({
     data: {
         image: "http://121.196.227.203:8000/images/shm.jpg",
         bottomPlayer: {
-            img: "",
-            audioUrl_zh: "",
-            audioUrl_en: "",
-            title: "111",
+            img: "http://121.196.227.203:8000/images/audioImage/pre.png",
+            audioUrl_zh: "http://121.196.227.203:8000/audios/Chinese/0-0.mp3",
+            audioUrl_en: "http://121.196.227.203:8000/audios/English/0-0.mp3",
+            title: "序厅",
             dec: "",
             play: false,
             language_zh: true
@@ -24,7 +24,7 @@ Page({
                 list: [{
                     name: '序厅',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/pre.png",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/0-0.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/0-0.mp3'
                 }]
@@ -32,27 +32,27 @@ Page({
             {
                 id: '1',
                 list: [{
-                    name: '第一展厅-1',
+                    name: '汇仁人志士 启医教之光',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/1-1.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/1-1.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/1-1.mp3'
                 }, {
-                    name: '第一展厅-2',
+                    name: '独立建院 阔步前行',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/1-2.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/1-2.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/1-2.mp3'
                 }, {
-                    name: '第一展厅-3',
+                    name: '迁址郑州 谱写新篇',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/1-3.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/1-3.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/1-3.mp3'
                 }, {
-                    name: '第一展厅-4',
+                    name: '改革开放 蓬勃发展',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/1-4.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/1-4.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/1-4.mp3'
                 }]
@@ -60,27 +60,27 @@ Page({
             {
                 id: '2',
                 list: [{
-                    name: '第二展厅-1',
+                    name: '宏基肇造 扬帆启航',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/2-1.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/2-1.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/2-1.mp3'
                 }, {
-                    name: '第二展厅-2',
+                    name: '忠诚事业 守土有责',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/2-2.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/2-2.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/2-2.mp3'
                 }, {
-                    name: '第二展厅-3',
+                    name: '东方风来 姹紫嫣红',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/2-3.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/2-3.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/2-3.mp3'
                 }, {
-                    name: '第二展厅-4',
+                    name: '高歌猛进 创新发展',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/2-4.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/2-4.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/2-4.mp3'
                 }]
@@ -88,21 +88,21 @@ Page({
             {
                 id: '3',
                 list: [{
-                    name: '第三展厅-1',
+                    name: '凤栖金水 学兴中州',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/3-1.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/3-1.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/3-1.mp3'
                 }, {
-                    name: '第三展厅-2',
+                    name: '天道行健 奋发图强',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/3-2.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/3-2.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/3-2.mp3'
                 }, {
-                    name: '第三展厅-3',
+                    name: '齐驱并进 锦绣纷披',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/3-3.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/3-3.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/3-3.mp3'
                 }],
@@ -110,39 +110,39 @@ Page({
             {
                 id: '4',
                 list: [{
-                    name: '第四展厅-1',
+                    name: '三强融铸',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/4-1.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-1.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/4-1.mp3'
                 }, {
-                    name: '第四展厅-2',
+                    name: '科学规划',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/4-2.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-2.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/4-2.mp3'
                 }, {
-                    name: '第四展厅-3',
+                    name: '重大突破',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/4-3.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-3.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/4-3.mp3'
                 }, {
-                    name: '第四展厅-4',
+                    name: '硕果累累',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/4-4.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-4.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/4-4.mp3'
                 }, {
-                    name: '第四展厅-5',
+                    name: '实情宣传片',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/4-5.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-5.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/4-5.mp3'
                 }, {
-                    name: '第四展厅-6',
+                    name: '结束语',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/4-6.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-6.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/4-6.mp3'
                 }]
@@ -152,7 +152,7 @@ Page({
                 list: [{
                     name: '中厅',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/xsg.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/pre.png",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/0-1.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/0-1.mp3'
                 }]

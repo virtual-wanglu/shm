@@ -6,40 +6,76 @@
 
 <van-tabs swipeable ellipsis="false">
     <van-tab title="序厅">
-        <view wx:for="{{audiodata[0].list}}" wx:key="id">
+        <scroll-view style="height: auto;" scroll-y wx:for="{{audiodata[0].list}}" wx:key="id">
             <view class="empty"></view>
-            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
-        </view>
+            <view class="cell" data-obj="{{item}}" bindtap="selectaudio">
+                <image class="cell-image" src="{{item.photo}}"></image>
+                <view class="text-view">
+                    <text class="cell-text">{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <view style="height: 150rpx;"></view>
     </van-tab>
     <van-tab title="第一展厅">
-        <view wx:for="{{audiodata[1].list}}" wx:key="id">
+        <scroll-view style="height: auto;" scroll-y wx:for="{{audiodata[1].list}}" wx:key="id">
             <view class="empty"></view>
-            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
-        </view>
+            <view class="cell" data-obj="{{item}}" bindtap="selectaudio">
+                <image class="cell-image" src="{{item.photo}}"></image>
+                <view class="text-view">
+                    <text class="cell-text">{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <view style="height: 150rpx;"></view>
     </van-tab>
     <van-tab title="第二展厅">
-        <view wx:for="{{audiodata[2].list}}" wx:key="id">
+        <scroll-view style="height: auto;" scroll-y wx:for="{{audiodata[2].list}}" wx:key="id">
             <view class="empty"></view>
-            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
-        </view>
+            <view class="cell" data-obj="{{item}}" bindtap="selectaudio">
+                <image class="cell-image" src="{{item.photo}}"></image>
+                <view class="text-view">
+                    <text class="cell-text">{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <view style="height: 150rpx;"></view>
     </van-tab>
     <van-tab title="中厅">
-        <view wx:for="{{audiodata[5].list}}" wx:key="id">
+        <scroll-view style="height: auto;" scroll-y wx:for="{{audiodata[5].list}}" wx:key="id">
             <view class="empty"></view>
-            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
-        </view>
+            <view class="cell" data-obj="{{item}}" bindtap="selectaudio">
+                <image class="cell-image" src="{{item.photo}}"></image>
+                <view class="text-view">
+                    <text class="cell-text">{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <view style="height: 150rpx;"></view>
     </van-tab>
     <van-tab title="第三展厅">
-        <view wx:for="{{audiodata[3].list}}" wx:key="id">
+        <scroll-view style="height: auto;" scroll-y wx:for="{{audiodata[3].list}}" wx:key="id">
             <view class="empty"></view>
-            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
-        </view>
+            <view class="cell" data-obj="{{item}}" bindtap="selectaudio">
+                <image class="cell-image" src="{{item.photo}}"></image>
+                <view class="text-view">
+                    <text class="cell-text">{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <view style="height: 150rpx;"></view>
     </van-tab>
     <van-tab title="第四展厅">
-        <view wx:for="{{audiodata[4].list}}" wx:key="id">
+        <scroll-view style="height: auto;" scroll-y wx:for="{{audiodata[4].list}}" wx:key="id">
             <view class="empty"></view>
-            <van-cell size="large" icon="{{item.photo}}" title="{{item.name}}" label="{{item.dec}}" data-obj="{{item}}" bindtap="selectaudio" />
-        </view>
+            <view class="cell" data-obj="{{item}}" bindtap="selectaudio">
+                <image class="cell-image" src="{{item.photo}}"></image>
+                <view class="text-view">
+                    <text class="cell-text">{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <view style="height: 150rpx;"></view>
     </van-tab>
 </van-tabs>
 
