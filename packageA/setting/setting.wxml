@@ -1,1 +1,8 @@
-
+<van-cell title="修改信息" size="large" is-link link-type="navigateTo"
+  url="/packageC/userInfo/userInfo"></van-cell>
+<view style="height: 50rpx;"></view>
+<van-cell title="使用说明" size="large" is-link link-type="navigateTo"
+  url="/packageC/instruction/instruction"></van-cell>
+<view style="height: 50rpx;"></view>
+<van-cell title="关于小程序" size="large" is-link link-type="navigateTo"
+  url="/packageC/miniprogram/miniprogram"></van-cell>

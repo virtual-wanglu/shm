@@ -20,7 +20,7 @@
     },
     {
       "root":"packageB",
-      "name": "package-shop",
+      "name": "package-navigateTo",
       "pages": [
         "shoppingservice/shoppingservice",
         "purchase/purchase",
@@ -30,6 +30,15 @@
         "roomnavigation/roomnavigation",
         "virtualdetail/virtualdetail",
         "view3D/view3D"
+      ]
+    },
+    {
+      "root":"packageC",
+      "name": "package-setting",
+      "pages": [
+        "userInfo/userInfo",
+        "miniprogram/miniprogram",
+        "instruction/instruction"
       ]
     }
   ],

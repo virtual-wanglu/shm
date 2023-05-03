@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "修改信息",
+    "usingComponents": {
+        "van-empty": "@vant/weapp/empty/index"
+    }
+}
