@@ -4,5 +4,14 @@
 <van-cell title="使用说明" size="large" is-link link-type="navigateTo"
   url="/packageC/instruction/instruction"></van-cell>
 <view style="height: 50rpx;"></view>
+<van-cell title="免责声明" size="large" is-link link-type="navigateTo"
+  url="/packageC/disclaimer/disclaimer"></van-cell>
+<view style="height: 50rpx;"></view>
+<van-cell title="隐私政策" size="large" is-link link-type="navigateTo"
+  url="/packageC/privacy/privacy"></van-cell>
+<view style="height: 50rpx;"></view>
+<van-cell title="关于我们" size="large" is-link link-type="navigateTo"
+  url="/packageC/forUs/forUs"></van-cell>
+<view style="height: 50rpx;"></view>
 <van-cell title="关于小程序" size="large" is-link link-type="navigateTo"
   url="/packageC/miniprogram/miniprogram"></van-cell>
