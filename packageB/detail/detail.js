@@ -118,6 +118,10 @@ Page({
                 data: msg,
                 success: function (res) {
                     console.log(res)
+                    wx.showToast({
+                      title: '已加入购物车',
+                      icon:'success'
+                    })
                 }
             })
         }
