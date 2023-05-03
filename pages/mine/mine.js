@@ -15,7 +15,7 @@ Page({
         loginStatus: false,
         userPhoto: "/images/Uphoto.png",
         userName: "啦啦啦",
-        userInfo:null,
+        userInfo: null,
     },
 
     loginFun() {
@@ -24,9 +24,11 @@ Page({
         wx.getUserProfile({
             desc: '必须授权才能使用',
             success: res => {
-                that.setData({
-                    userInfo: res.userInfo,
-                })
+                // that.setData({
+                //     userInfo: res.userInfo,
+                // })
+                //app.globalData.userInfo = res.userInfo
+                var userInfo = res.userInfo
                 console.log(res.userInfo)
                 wx.login({
                     success: (res) => {
@@ -34,25 +36,27 @@ Page({
                             var msg = JSON.stringify({
                                 /*将对象转换成json字符串形式*/
                                 'code': res.code,
-                                'nick_name':this.data.userInfo.nickName,
-                                'avatar_url':this.data.userInfo.avatarUrl
+                                'nick_name': userInfo.nickName,
+                                'avatar_url': userInfo.avatarUrl
                             })
                             console.log(msg),
-                            wx.request({
-                                url: app.globalData.serviceUrl+'/user/login',
-                                method: 'POST',
-                                data:msg,
-                                success(res) {
-                                    console.log(res)
-                                    if (res.statusCode == '200') {
-                                        that.setData({
-                                            loginStatus: true,
-                                        }),
-                                        app.globalData.userlogin=true
-                                        app.globalData.useropenId=res.data
+                                wx.request({
+                                    url: app.globalData.serviceUrl + '/user/login',
+                                    method: 'POST',
+                                    data: msg,
+                                    success(res) {
+                                        console.log(res)
+                                        if (res.statusCode == '200') {
+                                            that.setData({
+                                                    loginStatus: true,
+                                                    userInfo: res.data,
+                                                }),
+                                            app.globalData.userlogin = true
+                                            app.globalData.useropenId = res.data.open_id
+                                            app.globalData.userInfo = res.data
+                                        }
                                     }
-                                }
-                            })
+                                })
                         }
                     }
                 })
@@ -67,9 +71,24 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        let user = wx.getStorageSync('user')
-        this.setData({
-            userInfo: user
+    },
+
+    getUserInfo(){
+        var that=this
+        var msg = JSON.stringify({
+            'openid': app.globalData.useropenId,
+        })
+        wx.request({
+            url: app.globalData.serviceUrl + '/user/getInfo',
+            method: 'POST',
+            data: msg,
+            success(res) {
+                console.log(res)
+                that.setData({
+                    userInfo:res.data
+                })
+                app.globalData.userInfo=res.data
+            }
         })
     },
 
@@ -86,7 +105,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        if (app.globalData.userlogin) {
+            // this.getUserInfo()
+            this.setData({
+                userInfo:app.globalData.userInfo
+            })
+        }
+        console.log(this.data.userInfo)
     },
 
     /**
