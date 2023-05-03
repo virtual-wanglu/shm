@@ -28,6 +28,6 @@
     type="primary"
     size="large"
     bindtap="inroomnavigation"
-    >进入室内导航
+    >进入室内导游
     </van-button>
 </view>
