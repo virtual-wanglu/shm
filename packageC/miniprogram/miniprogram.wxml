@@ -1,0 +1,9 @@
+<view class="containar">
+    <image src="{{shmIconUrl}}" class="icon"></image>
+    <text class="name">掌上校史馆</text>
+    <text class="version">version 1.0.1</text>
+    <view class="cell">
+        <van-cell title="所属公司" size="large" value="见微科技有限公司"></van-cell>
+        <van-cell title="客服电话" size="large" value="18338280489"></van-cell>
+    </view>
+</view>
