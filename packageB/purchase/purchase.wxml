@@ -1,5 +1,5 @@
 <view class="div1">
-    <view class="address" wx:if="{{userAddress!=null}}">
+    <view class="address" wx:if="{{userAddress}}">
         <view class="icon">
             <image src="/images/loc.png" style="width:60rpx; height:60rpx;" mode="widthFix"></image>
         </view>
@@ -20,7 +20,7 @@
             </view>
         </view>
     </view>
-    <view wx:if="{{userAddress==null}}" class="addressNull" bindtap="addUserAddres">
+    <view wx:else class="addressNull" bindtap="addUserAddres">
         <text>请添加收货地址</text>
     </view>
 </view>

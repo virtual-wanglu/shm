@@ -148,7 +148,7 @@ Page({
 
     goToOrderSubmit() {
         var that=this
-        if (this.data.userAddress == null) {
+        if (!this.data.userAddress) {
             wx.showModal({
                 title: '提示',
                 content: '请填写收货地址',
