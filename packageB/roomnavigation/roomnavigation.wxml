@@ -4,8 +4,8 @@
 
 <!-- <audio poster="{{audiodata.poster}}" name="{{audiodata.name}}" src="{{audiodata.src}}" id="myAudio" controls loop></audio> -->
 
-<van-tabs swipeable ellipsis="false" line-width="150rpx">
-    <van-tab title="序厅">
+<van-tabs swipeable ellipsis="false" line-width="150rpx" active="{{ active }}">
+    <van-tab title="序厅" >
         <scroll-view style="height: auto;" scroll-y wx:for="{{audiodata[0].list}}" wx:key="id">
             <view class="empty"></view>
             <view class="cell" data-obj="{{item}}" bindtap="selectaudio">

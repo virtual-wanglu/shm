@@ -71,3 +71,7 @@
     font:bold;
     font-size: 40rpx;
 }
+
+.van-tab{
+    width: 300rpx;
+}
