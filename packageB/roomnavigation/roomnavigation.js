@@ -12,7 +12,7 @@ Page({
         image: "http://121.196.227.203:8000/images/map1.jpg",
         mapImage:"http://121.196.227.203:8000/images/map2.jpg",
         bottomPlayer: {
-            img: "http://121.196.227.203:8000/images/audioImage/pre.png",
+            img: "http://121.196.227.203:8000/images/audioImage/pre.jpg",
             audioUrl_zh: "http://121.196.227.203:8000/audios/Chinese/0-0.mp3",
             audioUrl_en: "http://121.196.227.203:8000/audios/English/0-0.mp3",
             title: "序厅",
@@ -25,7 +25,7 @@ Page({
                 list: [{
                     name: '序厅',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/audioImage/pre.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/pre.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/0-0.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/0-0.mp3'
                 }]
@@ -153,7 +153,7 @@ Page({
                 list: [{
                     name: '中厅',
                     dec: "",
-                    photo: "http://121.196.227.203:8000/images/audioImage/pre.png",
+                    photo: "http://121.196.227.203:8000/images/audioImage/mid.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/0-1.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/0-1.mp3'
                 }]
