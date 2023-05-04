@@ -9,7 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        image: "http://121.196.227.203:8000/images/shm.jpg",
+        image: "http://121.196.227.203:8000/images/map1.jpg",
+        mapImage:"http://121.196.227.203:8000/images/map2.jpg",
         bottomPlayer: {
             img: "http://121.196.227.203:8000/images/audioImage/pre.png",
             audioUrl_zh: "http://121.196.227.203:8000/audios/Chinese/0-0.mp3",
@@ -134,7 +135,7 @@ Page({
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-4.mp3',
                     src_en: 'http://121.196.227.203:8000/audios/English/4-4.mp3'
                 }, {
-                    name: '实情宣传片',
+                    name: '实景宣传片',
                     dec: "",
                     photo: "http://121.196.227.203:8000/images/audioImage/4-5.jpg",
                     src_zh: 'http://121.196.227.203:8000/audios/Chinese/4-5.mp3',
@@ -227,9 +228,11 @@ Page({
     },
 
     clickImg(e) {
+        this.pauseFun()
         console.log(e);
-        var imgUrl = this.data.image
+        var imgUrl = this.data.mapImage
         wx.previewImage({
+            current:imgUrl,
             urls: [imgUrl],
         })
     },
