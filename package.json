@@ -7,15 +7,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/FC-Bayern-Munchen/universityhistorymuseum.git"
+    "url": "git+https://github.com/FC-Bayern-Munchen/shm.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/FC-Bayern-Munchen/universityhistorymuseum/issues"
+    "url": "https://github.com/FC-Bayern-Munchen/shm/issues"
   },
-  "homepage": "https://gitlab.com/FC-Bayern-Munchen/universityhistorymuseum#readme",
+  "homepage": "https://github.com/FC-Bayern-Munchen/shm.git#readme",
   "dependencies": {
     "@vant/weapp": "^1.10.12",
     "weui-miniprogram": "^1.2.7"
